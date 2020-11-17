@@ -1,0 +1,3 @@
+Info (10281): Verilog HDL Declaration information at src.sv(35): object "s" differs only in case from object "S" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 35
+Info (10281): Verilog HDL Declaration information at src.sv(36): object "b" differs only in case from object "B" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 36
+Info (10281): Verilog HDL Declaration information at src.sv(149): object "B" differs only in case from object "b" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 149
