@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Tue Nov 17 12:34:37 2020
+Analysis & Synthesis Status : Successful - Wed Nov 18 16:01:53 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : src
 Top-level Entity Name : src
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 60
+Total registers : 27
+Total pins : 61
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

@@ -610,7 +610,7 @@ GND                          : R16       : gnd    :                   :         
 VCC                          : R17       : power  :                   : 1.1V    :           :                
 GND                          : R18       : gnd    :                   :         :           :                
 VCC                          : R19       : power  :                   : 1.1V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : R20       :        :                   :         : 5B        :                
+CLOCK_50                     : R20       : input  : 2.5 V             :         : 5B        : Y              
 VCCPD5B                      : R21       : power  :                   : 2.5V    : 5B        :                
 VCCIO5B                      : R22       : power  :                   : 2.5V    : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R23       :        :                   :         : 5B        :                
