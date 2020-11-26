@@ -1,5 +1,5 @@
 Analysis & Synthesis report for src
-Wed Nov 25 21:11:24 2020
+Thu Nov 26 19:32:32 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -16,54 +16,83 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   8. Registers Removed During Synthesis
   9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: CPU:mycpu|ROM:myrom
- 13. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg
- 14. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|parameterized_decoder:decw
- 15. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk
- 16. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[1].itk
- 17. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[2].itk
- 18. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk
- 19. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk
- 20. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk
- 21. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk
- 22. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk
- 23. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk
- 24. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk
- 25. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk
- 26. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk
- 27. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk
- 28. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk
- 29. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk
- 30. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk
- 31. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:mux0
- 32. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:mux1
- 33. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:mux2
- 34. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu
- 35. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0
- 36. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0
- 37. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0|mux2to1:mux1
- 38. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0|mux2to1:mux1
- 39. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0
- 40. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux0
- 41. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux1
- 42. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux2
- 43. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|mux4to1:mux0
- 44. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|mux2to1:mux1
- 45. Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:ALUTest
- 46. Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:ShiftTest
- 47. Port Connectivity Checks: "CPU:mycpu|tristate_active_hi:ShiftTest"
- 48. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux2"
- 49. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|adderOV:add0|mux2to1:mux1"
- 50. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0"
- 51. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|adderOV:add0"
- 52. Port Connectivity Checks: "CPU:mycpu|RTypePrioDecoder:myrtypedecoder"
- 53. Port Connectivity Checks: "CPU:mycpu|OpPrioDecoder:myopdecoder"
- 54. Port Connectivity Checks: "counter32:myclock"
- 55. Post-Synthesis Netlist Statistics for Top Partition
- 56. Elapsed Time Per Partition
- 57. Analysis & Synthesis Messages
- 58. Analysis & Synthesis Suppressed Messages
+ 11. Parameter Settings for User Entity Instance: CPU:mycpu|ROM:myrom
+ 12. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg
+ 13. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|parameterized_decoder:decw
+ 14. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk
+ 15. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[1].itk
+ 16. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[2].itk
+ 17. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk
+ 18. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk
+ 19. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk
+ 20. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk
+ 21. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk
+ 22. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk
+ 23. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk
+ 24. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk
+ 25. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk
+ 26. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk
+ 27. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk
+ 28. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk
+ 29. Parameter Settings for User Entity Instance: CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk
+ 30. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:mux0
+ 31. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:mux1
+ 32. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:mux2
+ 33. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu
+ 34. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0
+ 35. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0
+ 36. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0|mux2to1:mux1
+ 37. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|adderOV:add0|mux2to1:mux1
+ 38. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0
+ 39. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux0
+ 40. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux1
+ 41. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux2
+ 42. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|mux4to1:mux0
+ 43. Parameter Settings for User Entity Instance: CPU:mycpu|ALU:myalu|mux2to1:mux1
+ 44. Parameter Settings for User Entity Instance: CPU:mycpu|shifter:myshift
+ 45. Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult
+ 46. Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux1
+ 47. Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux2
+ 48. Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux3
+ 49. Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux4
+ 50. Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux5
+ 51. Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:ALUTest
+ 52. Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:ShiftTest
+ 53. Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:MultTest
+ 54. Parameter Settings for User Entity Instance: CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0
+ 55. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jtamux1
+ 56. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jtamux2
+ 57. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jtamux3
+ 58. Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn1
+ 59. Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn2
+ 60. Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd1
+ 61. Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2
+ 62. Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd3
+ 63. Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd4
+ 64. Parameter Settings for User Entity Instance: CPU:mycpu|RAM:mem2
+ 65. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:memmux1
+ 66. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2"
+ 67. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd1"
+ 68. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn2"
+ 69. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn1"
+ 70. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem"
+ 71. Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux3"
+ 72. Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux2"
+ 73. Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux1"
+ 74. Port Connectivity Checks: "CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0"
+ 75. Port Connectivity Checks: "CPU:mycpu|BranchControl:mybranchctrl"
+ 76. Port Connectivity Checks: "CPU:mycpu|shifter:myshift"
+ 77. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux2"
+ 78. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|adderOV:add0|mux2to1:mux1"
+ 79. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0"
+ 80. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|adderOV:add0"
+ 81. Port Connectivity Checks: "CPU:mycpu|OpPrioDecoder:myopdecoder"
+ 82. Port Connectivity Checks: "CPU:mycpu|ROM:myrom"
+ 83. Port Connectivity Checks: "counter32:myclock"
+ 84. Post-Synthesis Netlist Statistics for Top Partition
+ 85. Elapsed Time Per Partition
+ 86. Analysis & Synthesis Messages
+ 87. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -89,13 +118,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Nov 25 21:11:24 2020           ;
+; Analysis & Synthesis Status     ; Successful - Thu Nov 26 19:32:32 2020           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; src                                             ;
 ; Top-level Entity Name           ; src                                             ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 74                                              ;
+; Total registers                 ; 75                                              ;
 ; Total pins                      ; 61                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -213,67 +242,62 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                           ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                       ; Library ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
-; src.sv                           ; yes             ; User SystemVerilog HDL File  ; U:/ELEC4720/simple-microprocessor/src.sv           ;         ;
-; instructions.txt                 ; yes             ; Auto-Found File              ; U:/ELEC4720/simple-microprocessor/instructions.txt ;         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                        ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------+---------+
+; src.sv                           ; yes             ; User SystemVerilog HDL File  ; U:/ELEC4720/simple-microprocessor/src.sv            ;         ;
+; instructions2.txt                ; yes             ; Auto-Found File              ; U:/ELEC4720/simple-microprocessor/instructions2.txt ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                    ;
-+---------------------------------------------+------------------+
-; Resource                                    ; Usage            ;
-+---------------------------------------------+------------------+
-; Estimate of Logic utilization (ALMs needed) ; 142              ;
-;                                             ;                  ;
-; Combinational ALUT usage for logic          ; 237              ;
-;     -- 7 input functions                    ; 0                ;
-;     -- 6 input functions                    ; 45               ;
-;     -- 5 input functions                    ; 62               ;
-;     -- 4 input functions                    ; 43               ;
-;     -- <=3 input functions                  ; 87               ;
-;                                             ;                  ;
-; Dedicated logic registers                   ; 74               ;
-;                                             ;                  ;
-; I/O pins                                    ; 61               ;
-;                                             ;                  ;
-; Total DSP Blocks                            ; 0                ;
-;                                             ;                  ;
-; Maximum fan-out node                        ; CPU:mycpu|pc[15] ;
-; Maximum fan-out                             ; 61               ;
-; Total fan-out                               ; 1235             ;
-; Average fan-out                             ; 2.85             ;
-+---------------------------------------------+------------------+
++-----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                           ;
++---------------------------------------------+-------------------------+
+; Resource                                    ; Usage                   ;
++---------------------------------------------+-------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 43                      ;
+;                                             ;                         ;
+; Combinational ALUT usage for logic          ; 73                      ;
+;     -- 7 input functions                    ; 0                       ;
+;     -- 6 input functions                    ; 0                       ;
+;     -- 5 input functions                    ; 0                       ;
+;     -- 4 input functions                    ; 28                      ;
+;     -- <=3 input functions                  ; 45                      ;
+;                                             ;                         ;
+; Dedicated logic registers                   ; 75                      ;
+;                                             ;                         ;
+; I/O pins                                    ; 61                      ;
+;                                             ;                         ;
+; Total DSP Blocks                            ; 0                       ;
+;                                             ;                         ;
+; Maximum fan-out node                        ; counter32:myclock|q[25] ;
+; Maximum fan-out                             ; 51                      ;
+; Total fan-out                               ; 504                     ;
+; Average fan-out                             ; 1.87                    ;
++---------------------------------------------+-------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                        ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                           ; Entity Name   ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+---------------+--------------+
-; |src                               ; 237 (0)             ; 74 (0)                    ; 0                 ; 0          ; 61   ; 0            ; |src                                                          ; src           ; work         ;
-;    |CPU:mycpu|                     ; 211 (32)            ; 48 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu                                                ; CPU           ; work         ;
-;       |ALU:myalu|                  ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu                                      ; ALU           ; work         ;
-;          |adderOV:add0|            ; 34 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|adderOV:add0                         ; adderOV       ; work         ;
-;             |adder:add0|           ; 34 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0              ; adder         ; work         ;
-;                |mux2to1:mux1|      ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0|mux2to1:mux1 ; mux2to1       ; work         ;
-;          |mux2to1:mux1|            ; 37 (37)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|mux2to1:mux1                         ; mux2to1       ; work         ;
-;       |OpPrioDecoder:myopdecoder|  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|OpPrioDecoder:myopdecoder                      ; OpPrioDecoder ; work         ;
-;       |ROM:myrom|                  ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ROM:myrom                                      ; ROM           ; work         ;
-;       |mux2to1:mux2|               ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:mux2                                   ; mux2to1       ; work         ;
-;       |regfile:myreg|              ; 30 (30)             ; 32 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg                                  ; regfile       ; work         ;
-;          |EnabledReg:bloop[0].itk| ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk          ; EnabledReg    ; work         ;
-;          |EnabledReg:bloop[3].itk| ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk          ; EnabledReg    ; work         ;
-;       |ssd:ins0|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ssd:ins0                                       ; ssd           ; work         ;
-;       |ssd:ins1|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ssd:ins1                                       ; ssd           ; work         ;
-;       |ssd:ins2|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ssd:ins2                                       ; ssd           ; work         ;
-;       |ssd:ins3|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ssd:ins3                                       ; ssd           ; work         ;
-;    |counter32:myclock|             ; 26 (26)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |src|counter32:myclock                                        ; counter32     ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+---------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                  ; Entity Name ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------+-------------+--------------+
+; |src                               ; 73 (0)              ; 75 (0)                    ; 0                 ; 0          ; 61   ; 0            ; |src                                                 ; src         ; work         ;
+;    |CPU:mycpu|                     ; 19 (1)              ; 49 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu                                       ; CPU         ; work         ;
+;       |ALU:myalu|                  ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu                             ; ALU         ; work         ;
+;          |adderOV:add0|            ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|adderOV:add0                ; adderOV     ; work         ;
+;             |adder:add0|           ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0     ; adder       ; work         ;
+;       |regfile:myreg|              ; 2 (0)               ; 32 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg                         ; regfile     ; work         ;
+;          |EnabledReg:bloop[2].itk| ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[2].itk ; EnabledReg  ; work         ;
+;          |EnabledReg:bloop[3].itk| ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk ; EnabledReg  ; work         ;
+;    |counter32:myclock|             ; 26 (26)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |src|counter32:myclock                               ; counter32   ; work         ;
+;    |ssd:ins0|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins0                                        ; ssd         ; work         ;
+;    |ssd:ins1|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins1                                        ; ssd         ; work         ;
+;    |ssd:ins2|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins2                                        ; ssd         ; work         ;
+;    |ssd:ins3|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins3                                        ; ssd         ; work         ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -282,65 +306,97 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------+---------------------------------------------+
 ; Register name                                             ; Reason for Removal                          ;
 +-----------------------------------------------------------+---------------------------------------------+
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[0..15] ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[0..15] ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[0..15] ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[0..15] ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[2].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[1].itk|Q[0..15]  ; Stuck at GND due to stuck port clock_enable ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[15]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[15]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[14]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[14]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[13]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[13]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[12]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[12]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[11]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[11]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[10]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[10]    ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[9]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[9]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[8]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[8]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[7]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[7]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[6]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[6]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[5]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[5]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[4]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[4]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[3]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[3]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[2]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[2]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[1]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[1]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[0]     ; Lost fanout                                 ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[0]     ; Lost fanout                                 ;
+; CPU:mycpu|multiDiv:mymult|lo[0..15]                       ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[0..15]                       ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[0..15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[0..15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[0..15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[0..15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[0..15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[0..15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[1].itk|Q[0..15]  ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk|Q[0..15]  ; Lost fanout                                 ;
 ; counter32:myclock|q[26..31]                               ; Lost fanout                                 ;
-; Total Number of Removed Registers = 230                   ;                                             ;
+; Total Number of Removed Registers = 262                   ;                                             ;
 +-----------------------------------------------------------+---------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                       ;
-+--------------------------------------------------------+--------------------------------+---------------------------------------------------------+
-; Register name                                          ; Reason for Removal             ; Registers Removed due to This Register                  ;
-+--------------------------------------------------------+--------------------------------+---------------------------------------------------------+
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[12] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[12], ;
-;                                                        ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[12]  ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[13] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[13], ;
-;                                                        ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[13]  ;
-+--------------------------------------------------------+--------------------------------+---------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                 ;
++----------------------------------+--------------------------------+---------------------------------------------------------+
+; Register name                    ; Reason for Removal             ; Registers Removed due to This Register                  ;
++----------------------------------+--------------------------------+---------------------------------------------------------+
+; CPU:mycpu|multiDiv:mymult|lo[0]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[0],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[0],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[0],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[0]   ;
+; CPU:mycpu|multiDiv:mymult|lo[1]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[1],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[1],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[1],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[1]   ;
+; CPU:mycpu|multiDiv:mymult|lo[2]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[2],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[2],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[2],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[2]   ;
+; CPU:mycpu|multiDiv:mymult|lo[3]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[3],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[3],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[3],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[3]   ;
+; CPU:mycpu|multiDiv:mymult|lo[4]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[4],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[4],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[4],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[4]   ;
+; CPU:mycpu|multiDiv:mymult|lo[5]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[5],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[5],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[5],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[5]   ;
+; CPU:mycpu|multiDiv:mymult|lo[6]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[6],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[6],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[6],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[6]   ;
+; CPU:mycpu|multiDiv:mymult|lo[7]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[7],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[7],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[7],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[7]   ;
+; CPU:mycpu|multiDiv:mymult|lo[8]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[8],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[8],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[8],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[8]   ;
+; CPU:mycpu|multiDiv:mymult|lo[9]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[9],  ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[9],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[9],  ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[9]   ;
+; CPU:mycpu|multiDiv:mymult|lo[10] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[10], ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[10], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[10], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[10]  ;
+; CPU:mycpu|multiDiv:mymult|lo[11] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[11], ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[11], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[11], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[11]  ;
+; CPU:mycpu|multiDiv:mymult|lo[12] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[12], ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[12], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[12], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[12]  ;
+; CPU:mycpu|multiDiv:mymult|lo[13] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[13], ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[13], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[13], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[13]  ;
+; CPU:mycpu|multiDiv:mymult|lo[14] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[14], ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[14], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[14], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[14]  ;
+; CPU:mycpu|multiDiv:mymult|lo[15] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[15], ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[15], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[15], ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[15]  ;
++----------------------------------+--------------------------------+---------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -348,7 +404,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 74    ;
+; Total registers                              ; 75    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -356,19 +412,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 32    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|regfile:myreg|Mux17         ;
-; 6:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|ALU:myalu|mux2to1:mux1|y[1] ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |src|CPU:mycpu|mux2to1:mux2|y[15]          ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:mux2|y[2]           ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 15 LEs               ; 6 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:mux2|y[14]          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
 
 
 +------------------------------------------------------------------+
@@ -703,6 +746,76 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|shifter:myshift ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux2 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux3 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux4 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|multiDiv:mymult|mux2to1:mux5 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:ALUTest ;
 +----------------+-------+----------------------------------------------------------+
@@ -718,19 +831,243 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                       ;
 +----------------+-------+------------------------------------------------------------+
-; n              ; 15    ; Signed Integer                                             ;
+; n              ; 16    ; Signed Integer                                             ;
 +----------------+-------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:mycpu|tristate_active_hi:ShiftTest"                                                                                                                                            ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; a    ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (15 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; y    ; Output ; Warning  ; Output or bidir port (15 bits) is smaller than the port expression (16 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND.            ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|tristate_active_hi:MultTest ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0 ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; W              ; 4     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jtamux1 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; W              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jtamux2 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; W              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jtamux3 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; W              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn1 ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn2 ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd3 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd4 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; W              ; 16    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|RAM:mem2 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; N              ; 6     ; Signed Integer                         ;
+; W              ; 16    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:memmux1 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; W              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2" ;
++-----------+-------+----------+--------------------------------------+
+; Port      ; Type  ; Severity ; Details                              ;
++-----------+-------+----------+--------------------------------------+
+; d1[15..8] ; Input ; Info     ; Stuck at GND                         ;
++-----------+-------+----------+--------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd1" ;
++-----------+-------+----------+--------------------------------------+
+; Port      ; Type  ; Severity ; Details                              ;
++-----------+-------+----------+--------------------------------------+
+; d1[15..8] ; Input ; Info     ; Stuck at GND                         ;
++-----------+-------+----------+--------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn2"                                                                                                                        ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; s    ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn1"                                                                                                                        ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; s    ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem"                                                                                                   ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                        ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Ad   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "Ad[15..1]" will be connected to GND.   ;
+; Op12 ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "Op12[15..1]" will be connected to GND. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux3"                                                              ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; y[15..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux2" ;
++-----------+-------+----------+------------------------+
+; Port      ; Type  ; Severity ; Details                ;
++-----------+-------+----------+------------------------+
+; d1[15..2] ; Input ; Info     ; Stuck at GND           ;
++-----------+-------+----------+------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux1" ;
++------------+-------+----------+-----------------------+
+; Port       ; Type  ; Severity ; Details               ;
++------------+-------+----------+-----------------------+
+; d0[15..12] ; Input ; Info     ; Stuck at GND          ;
++------------+-------+----------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0"                                    ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; y[3..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|BranchControl:mybranchctrl"                                                                                                    ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; a    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "a[3..1]" will be connected to GND. ;
+; b    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "b[3..1]" will be connected to GND. ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|shifter:myshift"                                                                                                                           ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                              ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (65536 bits) it drives.  Extra input bit(s) "A[65535..16]" will be connected to GND.  ;
+; Sh   ; Input  ; Warning  ; Input port expression (16 bits) is smaller than the input port (65536 bits) it drives.  Extra input bit(s) "Sh[65535..16]" will be connected to GND. ;
+; Y    ; Output ; Warning  ; Output or bidir port (65536 bits) is wider than the port expression (16 bits) it drives; bit(s) "Y[65535..16]" have no fanouts                       ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -771,16 +1108,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "CPU:mycpu|RTypePrioDecoder:myrtypedecoder"                                                ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; outcome[2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; outcome[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "CPU:mycpu|OpPrioDecoder:myopdecoder"                                                                                                      ;
 +------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
@@ -788,7 +1115,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
 ; a    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "a[5..5]" will be connected to GND. ;
 ; b    ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (6 bits) it drives; bit(s) "b[6..6]" have no fanouts                      ;
+; b[5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                       ;
 +------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:mycpu|ROM:myrom"                                                                                                                        ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Ad   ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "Ad[15..1]" will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -806,27 +1143,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 74                          ;
+; arriav_ff             ; 75                          ;
 ;     ENA               ; 32                          ;
-;     plain             ; 42                          ;
-; arriav_lcell_comb     ; 240                         ;
-;     arith             ; 58                          ;
+;     plain             ; 43                          ;
+; arriav_lcell_comb     ; 74                          ;
+;     arith             ; 41                          ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 16                          ;
+;     normal            ; 33                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 39                          ;
-;         2 data inputs ; 2                           ;
-;         5 data inputs ; 16                          ;
-;     normal            ; 182                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 22                          ;
-;         3 data inputs ; 21                          ;
-;         4 data inputs ; 43                          ;
-;         5 data inputs ; 46                          ;
-;         6 data inputs ; 45                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 3                           ;
+;         4 data inputs ; 28                          ;
 ; boundary_port         ; 61                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.60                        ;
-; Average LUT depth     ; 5.75                        ;
+; Max LUT depth         ; 3.40                        ;
+; Average LUT depth     ; 1.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -835,7 +1168,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:03:58     ;
 +----------------+--------------+
 
 
@@ -845,83 +1178,105 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed Nov 25 21:09:53 2020
+    Info: Processing started: Thu Nov 26 19:26:41 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off src -c src
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Info (12021): Found 19 design units, including 19 entities, in source file src.sv
+Info (12021): Found 24 design units, including 24 entities, in source file src.sv
     Info (12023): Found entity 1: src File: U:/ELEC4720/simple-microprocessor/src.sv Line: 2
-    Info (12023): Found entity 2: counter32 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 21
-    Info (12023): Found entity 3: CPU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 31
-    Info (12023): Found entity 4: ROM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 94
-    Info (12023): Found entity 5: regfile File: U:/ELEC4720/simple-microprocessor/src.sv Line: 107
-    Info (12023): Found entity 6: ALU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 129
-    Info (12023): Found entity 7: adderOV File: U:/ELEC4720/simple-microprocessor/src.sv Line: 149
-    Info (12023): Found entity 8: adder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 168
-    Info (12023): Found entity 9: SLT File: U:/ELEC4720/simple-microprocessor/src.sv Line: 183
-    Info (12023): Found entity 10: shifter File: U:/ELEC4720/simple-microprocessor/src.sv Line: 201
-    Info (12023): Found entity 11: OpPrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 216
-    Info (12023): Found entity 12: RTypePrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 238
-    Info (12023): Found entity 13: parameterized_decoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 256
-    Info (12023): Found entity 14: EnabledReg File: U:/ELEC4720/simple-microprocessor/src.sv Line: 268
-    Info (12023): Found entity 15: ssd File: U:/ELEC4720/simple-microprocessor/src.sv Line: 279
-    Info (12023): Found entity 16: immExtend File: U:/ELEC4720/simple-microprocessor/src.sv Line: 335
-    Info (12023): Found entity 17: tristate_active_hi File: U:/ELEC4720/simple-microprocessor/src.sv Line: 346
-    Info (12023): Found entity 18: mux4to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 356
-    Info (12023): Found entity 19: mux2to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 370
+    Info (12023): Found entity 2: counter32 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 32
+    Info (12023): Found entity 3: CPU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 42
+    Info (12023): Found entity 4: ROM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 119
+    Info (12023): Found entity 5: regfile File: U:/ELEC4720/simple-microprocessor/src.sv Line: 132
+    Info (12023): Found entity 6: ALU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 154
+    Info (12023): Found entity 7: adderOV File: U:/ELEC4720/simple-microprocessor/src.sv Line: 174
+    Info (12023): Found entity 8: adder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 193
+    Info (12023): Found entity 9: SLT File: U:/ELEC4720/simple-microprocessor/src.sv Line: 207
+    Info (12023): Found entity 10: shifter File: U:/ELEC4720/simple-microprocessor/src.sv Line: 225
+    Info (12023): Found entity 11: multiDiv File: U:/ELEC4720/simple-microprocessor/src.sv Line: 240
+    Info (12023): Found entity 12: BranchControl File: U:/ELEC4720/simple-microprocessor/src.sv Line: 277
+    Info (12023): Found entity 13: OpPrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 297
+    Info (12023): Found entity 14: RTypePrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 319
+    Info (12023): Found entity 15: parameterized_decoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 337
+    Info (12023): Found entity 16: EnabledReg File: U:/ELEC4720/simple-microprocessor/src.sv Line: 349
+    Info (12023): Found entity 17: MemoryIn File: U:/ELEC4720/simple-microprocessor/src.sv Line: 360
+    Info (12023): Found entity 18: RAM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 371
+    Info (12023): Found entity 19: MemoryAccess File: U:/ELEC4720/simple-microprocessor/src.sv Line: 386
+    Info (12023): Found entity 20: ssd File: U:/ELEC4720/simple-microprocessor/src.sv Line: 422
+    Info (12023): Found entity 21: immExtend File: U:/ELEC4720/simple-microprocessor/src.sv Line: 478
+    Info (12023): Found entity 22: tristate_active_hi File: U:/ELEC4720/simple-microprocessor/src.sv Line: 489
+    Info (12023): Found entity 23: mux4to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 499
+    Info (12023): Found entity 24: mux2to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 513
 Warning (12019): Can't analyze file -- file main.sv is missing
-Warning (10236): Verilog HDL Implicit Net warning at src.sv(138): created implicit net for "Cout" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 138
-Warning (10236): Verilog HDL Implicit Net warning at src.sv(138): created implicit net for "OV" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 138
-Warning (10222): Verilog HDL Parameter Declaration warning at src.sv(261): Parameter Declaration in module "parameterized_decoder" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: U:/ELEC4720/simple-microprocessor/src.sv Line: 261
+Warning (10236): Verilog HDL Implicit Net warning at src.sv(106): created implicit net for "rs" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 106
+Warning (10236): Verilog HDL Implicit Net warning at src.sv(106): created implicit net for "rt" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 106
+Warning (10236): Verilog HDL Implicit Net warning at src.sv(163): created implicit net for "Cout" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 163
+Warning (10236): Verilog HDL Implicit Net warning at src.sv(163): created implicit net for "OV" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 163
+Warning (10222): Verilog HDL Parameter Declaration warning at src.sv(342): Parameter Declaration in module "parameterized_decoder" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: U:/ELEC4720/simple-microprocessor/src.sv Line: 342
 Info (12127): Elaborating entity "src" for the top level hierarchy
+Warning (10034): Output port "LEDR" at src.sv(6) has no driver File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
 Warning (10034): Output port "LEDG[7..1]" at src.sv(7) has no driver File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
-Info (12128): Elaborating entity "counter32" for hierarchy "counter32:myclock" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 13
-Info (12128): Elaborating entity "CPU" for hierarchy "CPU:mycpu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 17
-Warning (10036): Verilog HDL or VHDL warning at src.sv(37): object "pc_carry" assigned a value but never read File: U:/ELEC4720/simple-microprocessor/src.sv Line: 37
-Warning (10230): Verilog HDL assignment warning at src.sv(89): truncated value with size 32 to match size of target (17) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 89
-Warning (10034): Output port "LEDR[9..6]" at src.sv(35) has no driver File: U:/ELEC4720/simple-microprocessor/src.sv Line: 35
-Info (12128): Elaborating entity "ROM" for hierarchy "CPU:mycpu|ROM:myrom" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 55
-Warning (10850): Verilog HDL warning at src.sv(102): number of words (11) in memory file does not match the number of elements in the address range [0:65535] File: U:/ELEC4720/simple-microprocessor/src.sv Line: 102
-Warning (10030): Net "mem.data_a" at src.sv(98) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 98
-Warning (10030): Net "mem.waddr_a" at src.sv(98) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 98
-Warning (10030): Net "mem.we_a" at src.sv(98) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 98
-Info (12128): Elaborating entity "OpPrioDecoder" for hierarchy "CPU:mycpu|OpPrioDecoder:myopdecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 64
-Info (12128): Elaborating entity "RTypePrioDecoder" for hierarchy "CPU:mycpu|RTypePrioDecoder:myrtypedecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 65
-Info (12128): Elaborating entity "regfile" for hierarchy "CPU:mycpu|regfile:myreg" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 68
-Info (12128): Elaborating entity "parameterized_decoder" for hierarchy "CPU:mycpu|regfile:myreg|parameterized_decoder:decw" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 116
-Info (12128): Elaborating entity "EnabledReg" for hierarchy "CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 123
-Info (12128): Elaborating entity "immExtend" for hierarchy "CPU:mycpu|immExtend:myimm" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 74
-Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|mux2to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 75
-Info (12128): Elaborating entity "ALU" for hierarchy "CPU:mycpu|ALU:myalu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 79
-Info (12128): Elaborating entity "adderOV" for hierarchy "CPU:mycpu|ALU:myalu|adderOV:add0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 138
-Info (12128): Elaborating entity "adder" for hierarchy "CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 159
-Info (12128): Elaborating entity "SLT" for hierarchy "CPU:mycpu|ALU:myalu|SLT:slt0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 139
-Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 192
-Info (12128): Elaborating entity "mux4to1" for hierarchy "CPU:mycpu|ALU:myalu|mux4to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 144
-Info (12128): Elaborating entity "tristate_active_hi" for hierarchy "CPU:mycpu|tristate_active_hi:ALUTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 81
-Info (12128): Elaborating entity "tristate_active_hi" for hierarchy "CPU:mycpu|tristate_active_hi:ShiftTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 82
-Warning (10230): Verilog HDL assignment warning at src.sv(352): truncated value with size 16 to match size of target (15) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 352
-Info (12128): Elaborating entity "ssd" for hierarchy "CPU:mycpu|ssd:ins0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 84
+Info (12128): Elaborating entity "counter32" for hierarchy "counter32:myclock" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 14
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:mycpu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 18
+Warning (10036): Verilog HDL or VHDL warning at src.sv(48): object "pc_carry" assigned a value but never read File: U:/ELEC4720/simple-microprocessor/src.sv Line: 48
+Warning (10230): Verilog HDL assignment warning at src.sv(64): truncated value with size 16 to match size of target (1) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 64
+Warning (10230): Verilog HDL assignment warning at src.sv(69): truncated value with size 32 to match size of target (17) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 69
+Info (12128): Elaborating entity "ROM" for hierarchy "CPU:mycpu|ROM:myrom" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 68
+Warning (10850): Verilog HDL warning at src.sv(127): number of words (4) in memory file does not match the number of elements in the address range [0:65535] File: U:/ELEC4720/simple-microprocessor/src.sv Line: 127
+Warning (10030): Net "mem.data_a" at src.sv(123) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 123
+Warning (10030): Net "mem.waddr_a" at src.sv(123) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 123
+Warning (10030): Net "mem.we_a" at src.sv(123) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 123
+Info (12128): Elaborating entity "OpPrioDecoder" for hierarchy "CPU:mycpu|OpPrioDecoder:myopdecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 78
+Info (12128): Elaborating entity "RTypePrioDecoder" for hierarchy "CPU:mycpu|RTypePrioDecoder:myrtypedecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 79
+Info (12128): Elaborating entity "regfile" for hierarchy "CPU:mycpu|regfile:myreg" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 81
+Info (12128): Elaborating entity "parameterized_decoder" for hierarchy "CPU:mycpu|regfile:myreg|parameterized_decoder:decw" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 141
+Info (12128): Elaborating entity "EnabledReg" for hierarchy "CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 148
+Info (12128): Elaborating entity "immExtend" for hierarchy "CPU:mycpu|immExtend:myimm" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 87
+Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|mux2to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 88
+Info (12128): Elaborating entity "ALU" for hierarchy "CPU:mycpu|ALU:myalu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 92
+Info (12128): Elaborating entity "adderOV" for hierarchy "CPU:mycpu|ALU:myalu|adderOV:add0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 163
+Info (12128): Elaborating entity "adder" for hierarchy "CPU:mycpu|ALU:myalu|adderOV:add0|adder:add0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 184
+Info (12128): Elaborating entity "SLT" for hierarchy "CPU:mycpu|ALU:myalu|SLT:slt0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 164
+Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|ALU:myalu|SLT:slt0|mux2to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 216
+Info (12128): Elaborating entity "mux4to1" for hierarchy "CPU:mycpu|ALU:myalu|mux4to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 169
+Info (12128): Elaborating entity "shifter" for hierarchy "CPU:mycpu|shifter:myshift" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 93
+Info (12128): Elaborating entity "multiDiv" for hierarchy "CPU:mycpu|multiDiv:mymult" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 94
+Info (12128): Elaborating entity "tristate_active_hi" for hierarchy "CPU:mycpu|tristate_active_hi:ALUTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 96
+Info (12128): Elaborating entity "BranchControl" for hierarchy "CPU:mycpu|BranchControl:mybranchctrl" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 106
+Warning (10230): Verilog HDL assignment warning at src.sv(293): truncated value with size 4 to match size of target (1) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 293
+Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 289
+Info (12128): Elaborating entity "MemoryAccess" for hierarchy "CPU:mycpu|MemoryAccess:mem1" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 112
+Info (12128): Elaborating entity "MemoryIn" for hierarchy "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 410
+Info (12128): Elaborating entity "RAM" for hierarchy "CPU:mycpu|RAM:mem2" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 113
+Info (12128): Elaborating entity "ssd" for hierarchy "ssd:ins0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 25
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "CPU:mycpu|RAM:mem2|array" is uninferred due to asynchronous read logic File: U:/ELEC4720/simple-microprocessor/src.sv Line: 378
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "U:/ELEC4720/simple-microprocessor/db/src.ram0_ROM_53a6a87d.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[14]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[13]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[12]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[11]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[10]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[9]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[8]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[7]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[6]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[5]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[4]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[3]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[2]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[1]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13048): Converted tri-state node "CPU:mycpu|WD[0]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 274
-    Warning (13049): Converted tri-state buffer "CPU:mycpu|tristate_active_hi:ALUTest|y[15]" feeding internal logic into a wire File: U:/ELEC4720/simple-microprocessor/src.sv Line: 350
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[15]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[14]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[13]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[12]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[11]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[10]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[9]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[8]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[7]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[6]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[5]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[4]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[3]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[2]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[1]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[0]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 517
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
     Warning (13410): Pin "LEDR[6]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
     Warning (13410): Pin "LEDR[7]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
@@ -934,12 +1289,11 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 38 registers lost all their fanouts during netlist optimizations.
+Info (17049): 230 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file U:/ELEC4720/simple-microprocessor/output_files/src.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 14 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 3
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[1]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 3
     Warning (15610): No output dependent on input pin "SW[2]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 3
     Warning (15610): No output dependent on input pin "SW[3]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 3
@@ -953,15 +1307,15 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 4
     Warning (15610): No output dependent on input pin "KEY[2]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 4
     Warning (15610): No output dependent on input pin "KEY[3]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 4
-Info (21057): Implemented 330 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 182 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 269 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 60 warnings
-    Info: Peak virtual memory: 4994 megabytes
-    Info: Processing ended: Wed Nov 25 21:11:24 2020
-    Info: Elapsed time: 00:01:31
-    Info: Total CPU time (on all processors): 00:01:34
+    Info (21061): Implemented 121 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 68 warnings
+    Info: Peak virtual memory: 5222 megabytes
+    Info: Processing ended: Thu Nov 26 19:32:32 2020
+    Info: Elapsed time: 00:05:51
+    Info: Total CPU time (on all processors): 00:05:49
 
 
 +------------------------------------------+

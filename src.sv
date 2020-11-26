@@ -9,12 +9,23 @@ module src(
 ); 
 
 	logic [31:0] q; 
+	logic [15:0] oup, pc; 
 	
 	counter32 myclock(CLOCK_50, q); 
 	
 	assign LEDG[0] = q[25]; 
 	
-	CPU mycpu(q[25], HEX0, HEX1, HEX2, HEX3, LEDR);
+	CPU mycpu(q[25], SW[0], oup);
+	
+//	ssd ins0((SW[1] ? pc[3:3] : oup[3:0]), HEX0); 
+//	ssd ins1((SW[1] ? pc[7:4] : oup[7:4]), HEX1); 
+//	ssd ins2((SW[1] ? pc[11:8] : oup[11:8]), HEX2); 
+//	ssd ins3((SW[1] ? pc[15:12] : oup[15:12]), HEX3);
+
+	ssd ins0(oup[3:0], HEX0); 
+	ssd ins1(oup[7:4], HEX1); 
+	ssd ins2(oup[11:8], HEX2); 
+	ssd ins3(oup[15:12], HEX3); 
 	
 endmodule
 // Slower clock
@@ -30,42 +41,44 @@ endmodule
 // CPU
 module CPU (
 	input  logic clk, 
-	output logic [6:0] HEX0, HEX1, HEX2, HEX3,
-	output logic [9:0] LEDR
+	input  logic en, 
+	output logic [15:0] outport
 ); 
 
-	logic pc_carry, funct; 
+	logic pc, pc_carry, funct, jump, branch, MemEn; 
 	logic [3:0] rprio;
 	logic [3:0] ALUSrc; 
 	logic [4:0] opcode;
 	logic [5:0] opprio;
-	logic [15:0] pc, pc_plus_one, pc_next;
+	logic [15:0] pc_plus_one, JTA, pc_next, BTA;
 	logic [3:0] RA1, RA2, WA, Imm; 
 	logic [15:0] RD1, RD2, WD;
 	logic [15:0] ZeroImm, CompImm, SignImm; 
 	logic [15:0] immOut0, immOut1, immOut2;
-	logic [15:0] shiftout, multout, ALUout;
+	logic [15:0] shiftout, multout, ALUout, opout; // opout stands for operation output
 	logic [17:0] instruction;
-
+	logic [15:0] RAMout, MemDin, MemRd;
+	
 	always_ff @(posedge clk) 
 		begin
-			pc <= pc_next; 
+			if (en) pc <= pc_next; 
+			outport <= WD; 
 		end
 	
 	ROM #(16, 18) myrom(pc, instruction); 
-	
+	assign {pc_carry, pc_plus_one} = pc + 1; 
 	assign funct  = instruction[12];
 	assign opcode = instruction[17:13];
 	assign Imm    = instruction[11:8];
 	assign RA1    = instruction[11:8]; 
 	assign RA2    = instruction[7:4]; 
-	assign WA     = instruction[3:0]; 
+	assign WA     = instruction[3:0];
+	assign JTA    = instruction[11:0]; 
 	
 	OpPrioDecoder myopdecoder(opcode, opprio); 
-	RTypePrioDecoder myrtypedecoder(opcode[3:1], rprio); 
-	assign LEDR[5:0] = opprio[5:0]; 
-	
-	regfile #(16, 4) myreg(clk, RA1, RA2, WA, WD, RD1, RD2); 
+	RTypePrioDecoder myrtypedecoder(opcode[3:1], rprio);  
+ 
+	regfile #(16, 4) myreg(clk, en, RA1, RA2, WA, WD, RD1, RD2); 
 	
 	assign ALUSrc[0] = instruction[12] & instruction[13]; 
 	assign ALUSrc[1] = instruction[14]; 
@@ -78,17 +91,28 @@ module CPU (
 
 	ALU #(16) myalu({opcode[2:0], funct}, RD2, immOut2, ALUout);
 	shifter #(16) myshift({opcode[0], funct}, RD2, RD1, shiftout);
+	multiDiv #(16) mymult(RD2, RD1, clk, {opcode[1:0], funct}, multout);
+
+	tristate_active_hi #(16) ALUTest(ALUout, rprio[3], opout); 
+	tristate_active_hi #(16) ShiftTest(shiftout, rprio[1], opout); 
+	tristate_active_hi #(16) MultTest(multout, rprio[2], opout);
 	
-	tristate_active_hi#(16) ALUTest(ALUout, rprio[3], WD); 
-	tristate_active_hi#(15) ShiftTest(shiftout, rprio[1], WD); 
+	assign jump = (opprio[5] & rprio[0]) | opprio[0];
+	assign BTA  = pc_plus_one + (SignImm << 2);
 	
-	ssd ins0(WD[3:0], HEX0); 
-	ssd ins1(WD[7:4], HEX1); 
-	ssd ins2(WD[11:8], HEX2); 
-	ssd ins3(WD[15:12], HEX3); 
+	logic [15:0] js; // jump signal
+	logic [15:0] jb; // jump to branch signal 
 	
-	assign {pc_carry, pc_plus_one} = pc + 1; 
-	assign pc_next = pc_plus_one; 
+	BranchControl mybranchctrl(rs, rt, funct, opcode[0], opprio[1], opprio[2], branch); 
+	
+	mux2to1 #(16) jtamux1(opprio[5], JTA, RD1, js); 
+	mux2to1 #(16) jtamux2(~jump, js, pc_plus_one, jb); 
+	mux2to1 #(16) jtamux3(branch, jb, BTA, pc_next);
+	
+	MemoryAccess mem1(RD1, RAMout, instruction, ALUout[0], MemRd, MemDin, MemEn);
+	RAM #(6, 16) mem2 (ALUout[6:1], MemDin, clk, MemEn, RAMout);
+	
+	mux2to1 #(16) memmux1(opprio[3], opout, MemRd, WD);
 	
 endmodule
 // ROM
@@ -100,14 +124,14 @@ module ROM #(parameter m=7,w=4) (
   assign Dout = mem[Ad];
   
   initial begin
-    $readmemb("instructions.txt",mem); 
+    $readmemb("instructions2.txt",mem); 
   end
 
 endmodule
 // Register file 
 module regfile
 #(parameter w=4, m=4) (
-	input logic clk,
+	input logic clk, en,
 	input logic [m-1:0] RAd0, RAd1, WAd,
 	input logic [w-1:0] Din,
 	output logic [w-1:0] Dout0, Dout1
@@ -121,7 +145,7 @@ module regfile
 	genvar k;
 	generate
 	for(k=0; k<2**m; k=k+1) begin: bloop
-		EnabledReg #(w) itk(clk,WEn[k],Din,Q[k]);
+		EnabledReg #(w) itk(clk, WEn[k], en, Din,Q[k]);
 	end
 	endgenerate
 		
@@ -174,7 +198,6 @@ module adder #(parameter W = 4) (
 	output logic cout
 ); 
 
-
 	mux2to1 #(W) mux1(s, B, ~B, b);
 
 	assign {cout,Y} = A + b + s;
@@ -202,7 +225,7 @@ endmodule
 module shifter #(parameter n = 4) (
 	input  logic [1:0] F, 
 	input  logic [2**n - 1:0] A, 
-	input  logic [n - 1:0] Sh, 
+	input  logic [2**n - 1:0] Sh, 
 	output logic [2**n - 1:0] Y 
 );
 
@@ -213,7 +236,64 @@ module shifter #(parameter n = 4) (
 	assign Y  = F[1]?  D1                  : D0;
 
 endmodule
-// Opcode Priority Instruction 
+// Multiplier & Divider 
+module multiDiv #(parameter n = 16)(
+	input  logic [n-1:0] a, 
+	input  logic [n-1:0] b, 
+	input  logic clk, 
+	input  logic [2:0] F, 
+	output logic [n-1:0] y
+);
+
+	logic [n-1:0] B,H,C,L,R,Q;
+	logic [n-1:0] D[3:0];
+	logic [n-1:0] hi,lo, en1,en2;
+
+	assign en1 = F[2] | ( F[1] & F[0]);
+	assign en2 = F[2] | (~F[1] & F[0]);
+
+	assign B = a;
+	assign C = b;
+
+	assign {H,L} = B * C;
+	assign  Q    = B / C;
+	assign  R    = B % C;
+
+	mux2to1 #(n) mux1 (F[0], H, R, D[0]);
+	mux2to1 #(n) mux2 (F[0], L, Q, D[1]);
+	mux2to1 #(n) mux3 (F[2], a, D[0], D[2]);
+	mux2to1 #(n) mux4 (F[2], a, D[1], D[3]);
+
+	always_ff @(posedge clk) 
+		begin
+			if (en1) hi <= D[2];
+			if (en2) lo <= D[3];
+		end
+
+	mux2to1 #(n) mux5 (F[1], hi, lo, y);
+
+endmodule
+// Branch control signals 
+module BranchControl (
+	input  logic[3:0] a, b, 
+	input  logic op12, op13, b1, b2, 
+	output logic branch
+);
+
+	logic [3:0] y [5:0];
+
+	assign y[0] = (op12 ^ ~((a ^ b)|(a ^ b)));
+	assign y[1] = (op12 ^ (b[3] | ~(b | b)));
+
+	
+	mux2to1 #(4) inst0(op13, y[0], y[1], y[2]); 
+
+	assign y[3] = op12 ^ b[3];
+
+	assign branch =((y[3] & b1) | (y[2] & b2));
+
+endmodule
+// Opcode Decoder Priority
 module OpPrioDecoder (
 	input  logic [5:0] a, 
 	output logic [6:0] b
@@ -268,14 +348,76 @@ endmodule
 // Register Enabler
 module EnabledReg
 #(parameter w=3) (
-	input logic clk, en,
+	input logic clk, en, enable,
 	input logic [w-1:0] D,
 	output logic [w-1:0] Q
 );
 	always @(posedge clk) 
-		if(en) Q <= D;
+		if(en & enable) Q <= D;
 
 endmodule
+// Mem access memin control signals
+module MemoryIn(
+	input logic  [15:0] WB0, WB1, WD, Ad, Op12, 
+	output logic [15:0] MemIn
+);
+
+	logic [15:0] Y;
+	mux2to1 #(16) MemIn1(Ad, WB0, WB1, Y);
+	mux2to1 #(16) MemIn2(Op12, Y, WD, MemIn);
+
+endmodule
+// RAM module
+module RAM #(parameter N = 5, W = 8) (
+	input  logic [N-1:0] Ad, 
+	input  logic [W-1:0] Din, 
+	input  logic clk, En, 
+	output logic [W-1:0] Dout
+); 
+
+	logic [W-1:0] array[2**N - 1:0]; 
+	assign Dout = array[Ad]; 
+	
+	always_ff @(posedge clk)
+		if(En) array[Ad] <= Din; 
+
+endmodule 
+// Memory access top module
+module MemoryAccess(
+	input  logic [15:0] WD, Mout, 
+	input  logic [17:0] instruction, 
+	input  logic Ad, 
+	output logic [15:0] Rd, MemIn,
+	output logic MemEn 
+); 
+
+	logic [15:0] WB0, WB1, SignB0, SignB1, ZeroB0, ZeroB1; 
+	logic s1, s2; 
+
+	assign s2 = instruction[12]; 
+	assign s1 = instruction[13]; 
+	assign MemEn = instruction[14] | instruction[15];
+	
+	assign WB0 = {WD[7:0], Mout[7:0]};
+	assign WB1 = {Mout[15:8], WD[15:8]}; 
+	
+	assign SignB0 = {{8{Mout[7]}}, Mout[7:0]}; 
+	assign SignB1 = {{8{Mout[15]}}, Mout[15:8]}; 
+	
+	assign ZeroB0 = {8'b0, Mout[7:0]}; 
+	assign ZeroB1 = {8'b0, Mout[15:8]}; 
+	
+	MemoryIn mymem (WB0, WB1, WD, Ad, s2, MemIn); // Memory In control signals 
+
+	// RD control signals
+	logic [15:0] x, y, z; 
+
+	mux2to1 #(16) Rd1(s1, SignB0, ZeroB0, x);
+	mux2to1 #(16) Rd2(s1, SignB1, ZeroB1, y);
+	mux2to1 #(16) Rd3(Ad, x, y, z);
+	mux2to1 #(16) Rd4(s2, z, Mout, Rd);
+
+endmodule 
 // SSD
 module ssd (
 	input  logic [3:0] SW,
