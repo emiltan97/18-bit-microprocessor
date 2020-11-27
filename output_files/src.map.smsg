@@ -1,5 +1,5 @@
-Info (10281): Verilog HDL Declaration information at src.sv(175): object "s" differs only in case from object "S" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 175
-Info (10281): Verilog HDL Declaration information at src.sv(176): object "b" differs only in case from object "B" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 176
-Info (10281): Verilog HDL Declaration information at src.sv(194): object "B" differs only in case from object "b" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 194
-Info (10281): Verilog HDL Declaration information at src.sv(242): object "b" differs only in case from object "B" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 242
-Warning (10273): Verilog HDL warning at src.sv(495): extended using "x" or "z" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 495
+Info (10281): Verilog HDL Declaration information at src.sv(177): object "s" differs only in case from object "S" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 177
+Info (10281): Verilog HDL Declaration information at src.sv(178): object "b" differs only in case from object "B" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 178
+Info (10281): Verilog HDL Declaration information at src.sv(196): object "B" differs only in case from object "b" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 196
+Info (10281): Verilog HDL Declaration information at src.sv(244): object "b" differs only in case from object "B" in the same scope File: U:/ELEC4720/simple-microprocessor/src.sv Line: 244
+Warning (10273): Verilog HDL warning at src.sv(506): extended using "x" or "z" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 506
