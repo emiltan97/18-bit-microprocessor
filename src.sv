@@ -15,7 +15,11 @@ module src(
 	
 	assign LEDG[0] = SW[0] ? KEY[0] : q[25]; 
 	
+<<<<<<< HEAD
 	CPU mycpu(SW[0] ? KEY[0] : q[25], oup, LEDR[5:0], LEDR[9:6]);
+=======
+	CPU mycpu(q[25], SW[0], oup, LEDR[5:0], LEDR[9:6]);
+>>>>>>> 4b0b1b47eb03cc709e05399149225851aaa833b9
 	
 	ssd ins0(oup[3:0], HEX0);
 	ssd ins1(oup[7:4], HEX1);
@@ -69,7 +73,11 @@ module CPU (
 	
 	assign isBranch = opprio[1] | opprio[2];
 	assign jump = (opprio[5] & rprio[0]) | opprio[0];
+<<<<<<< HEAD
 	mux2to1 #(4) branchmux0(isBranch, instruction[11:8], instruction[3:0], RA1);
+=======
+	mux2to1 #(4) branchmux0(isBranch, instruction[11:8], instruction[3:0], RA1); 
+>>>>>>> 4b0b1b47eb03cc709e05399149225851aaa833b9
 	assign Imm    = instruction[11:8];
 	assign RA2    = instruction[7:4]; 
 	mux2to1 #(4) jumpmux0(jump & funct, instruction[3:0], 4'b1111, WA); 
@@ -150,9 +158,15 @@ module regfile
 endmodule
 // ALU
 module ALU#(parameter n = 4)(
+<<<<<<< HEAD
 	input  logic [3:0] S, 
 	input  logic [n-1:0] A,
 	input  logic [n-1:0] B, 
+=======
+	input  logic [n-1:0] A,
+	input  logic [n-1:0] B, 
+	input  logic [3:0] S, 
+>>>>>>> 4b0b1b47eb03cc709e05399149225851aaa833b9
 	output logic [n-1:0] Y
 );
 
@@ -202,6 +216,7 @@ module SLTout#(parameter n = 4)(
 	input  logic Cout, OVs, S0, S3, 
 	output logic [n-1:0] SLToutcome
 );
+<<<<<<< HEAD
 
 	logic outcome0,outcome1;
 	logic [n-1:0] ZeroExt;
@@ -223,6 +238,29 @@ module mux4_1Test #(parameter n = 4) (
 	logic [n-1:0] lo, hi;
 	logic [n-1:0] D0,D1,D2,D3;
 
+=======
+
+	logic outcome0,outcome1;
+	logic [n-1:0] ZeroExt;
+
+	mux2to1 #(n) SLTmux(OVs, Result[n-1], Cout, outcome0);
+
+	mux2to1 #(n) SLTmux2(S0, outcome0, ~Cout, outcome1);
+
+	assign ZeroExt = {{(n-1){1'b0}}, outcome1};
+
+	mux2to1 #(n) SLTmux3(S3, Result, ZeroExt, SLToutcome);
+
+endmodule
+module mux4_1Test #(parameter n = 4) (
+	input  logic [n-1:0] A,B, 
+	input  logic [n-1:0] F0,F1,
+	output logic [n-1:0] Y
+);
+	logic [n-1:0] lo, hi;
+	logic [n-1:0] D0,D1,D2,D3;
+
+>>>>>>> 4b0b1b47eb03cc709e05399149225851aaa833b9
 	assign D0 = A&B;
 	assign D1 = A|B;
 	assign D2 = A^B;
