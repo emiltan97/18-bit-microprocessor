@@ -9,19 +9,19 @@ module src(
 ); 
 
 	logic [31:0] q; 
-	logic [15:0] oup, pc; 
+	logic [15:0] oup; 
 	
 	counter32 myclock(CLOCK_50, q); 
 	
 	assign LEDG[0] = q[25]; 
 	
-	CPU mycpu(KEY[0], SW[0], oup, LEDR[5:0], LEDR[9:6], pc);
+	CPU mycpu(q[25], SW[0], oup, LEDR[5:0], LEDR[9:6]);
 	
-	ssd ins0((SW[1] ? pc[3:3] : oup[3:0]), HEX0); 
-	ssd ins1((SW[1] ? pc[7:4] : oup[7:4]), HEX1); 
-	ssd ins2((SW[1] ? pc[11:8] : oup[11:8]), HEX2); 
-	ssd ins3((SW[1] ? pc[15:12] : oup[15:12]), HEX3);
-	
+	ssd ins0(oup[3:0], HEX0);
+	ssd ins1(oup[7:4], HEX1);
+	ssd ins2(oup[11:8], HEX2);
+	ssd ins3(oup[15:12], HEX3);
+
 endmodule
 // Slower clock
 module counter32 (
@@ -39,8 +39,7 @@ module CPU (
 	input  logic en, 
 	output logic [15:0] outport,
 	output logic [5:0] opprio,
-	output logic [3:0] rprio,
-	output logic [15:0] pcout
+	output logic [3:0] rprio
 ); 
 
 	logic pc_carry, funct, jump, branch, MemEn, isBranch, jumpWrite; 
@@ -68,7 +67,7 @@ module CPU (
 	
 	assign isBranch = opprio[1] | opprio[2];
 	assign jump = (opprio[5] & rprio[0]) | opprio[0];
-	mux2to1 #(4) branchmux0(isBranch, instruction[3:0], instruction[11:8], RA1); 
+	mux2to1 #(4) branchmux0(isBranch, instruction[11:8], instruction[3:0], RA1); 
 	assign Imm    = instruction[11:8];
 	assign RA2    = instruction[7:4]; 
 	assign jumpWrite = jump & funct; 
@@ -114,7 +113,6 @@ module CPU (
 	
 	mux2to1 #(16) jumpmux1(jumpWrite, opout, pc_plus_one, jm); 
 	mux2to1 #(16) memmux1(opprio[3], jm, MemRd, WD);
-	assign pcout = pc_next;
 	
 endmodule
 // ROM
@@ -153,59 +151,88 @@ module regfile
 		
 endmodule
 // ALU
-module ALU#(n)(input logic [n-1:0] A,input logic [n-1:0] B, input logic [3:0]S, output logic [n-1:0] Y);
+module ALU#(parameter n = 4)(
+	input  logic [n-1:0] A,
+	input  logic [n-1:0] B, 
+	input  logic [3:0] S, 
+	output logic [n-1:0] Y
+);
 
-logic Cin, Cout;
-logic OVs, Ovu;
-logic [n-1:0] Result, LogicOut, SLTResult;
-logic [n-1:0] B_out;
-logic	[n-1:0] D0,D1;
-
-
-assign D0 = B;
-assign D1 = ~B;
-assign CoutFlag = Cout;
-
-parameterized_mux2to1 #(n) ALUmux(D0, D1, S[1], B_out);
-
-assign Cin = S[1];
-ALU_Adder #(n)Test123(A,B_out,Cin, Result,Cout);
-assign OVs = (Result[n-1] ^ A[n-1]) & ~(A[n-1] ^ B_out[n-1]);
-assign Ovu = S[1] ^ Cout;
+	logic Cin, Cout;
+	logic OVs, Ovu;
+	logic [n-1:0] Result, LogicOut, SLTResult;
+	logic [n-1:0] B_out;
+	logic [n-1:0] D0,D1;
 
 
-parameterized_mux2to1 #(n) OVmux(OVs, Ovu, S[0], Z);
+	assign D0 = B;
+	assign D1 = ~B;
+	assign CoutFlag = Cout;
 
+	mux2to1 #(n) ALUmux(S[1], D0, D1, B_out);
 
-SLTout#(n) SLTTest(Result, Cout, OVs, S[0], (S[3]&S[1]), SLTResult);
+	assign Cin = S[1];
+	ALU_Adder #(n)Test123(A,B_out,Cin, Result,Cout);
+	assign OVs = (Result[n-1] ^ A[n-1]) & ~(A[n-1] ^ B_out[n-1]);
+	assign Ovu = S[1] ^ Cout;
 
-mux4_1Test#(n) LogicOutcome(A,B,S[0],S[1],LogicOut);
+	mux2to1 #(n) OVmux(S[0], OVs, Ovu, Z);
 
-parameterized_mux2to1 #(n) ResultLogicmux2(SLTResult, LogicOut, S[2], Y);
+	SLTout#(n) SLTTest(Result, Cout, OVs, S[0], (S[3]&S[1]), SLTResult);
 
+	mux4_1Test#(n) LogicOutcome(A,B,S[0],S[1],LogicOut);
+
+	mux2to1 #(n) ResultLogicmux2(S[2], SLTResult, LogicOut, Y);
 
 endmodule
 
 
-module ALU_Adder#(n)(input logic [n-1:0] a,b, input logic Cin, output logic [n-1:0] Y, output logic Cout);
+module ALU_Adder#(parameter n = 4)(
+	input  logic [n-1:0] a,b, 
+	input  logic Cin, 
+	output logic [n-1:0] Y, 
+	output logic Cout
+);
 
-assign {Cout,Y} = a + b + Cin;
+	assign {Cout,Y} = a + b + Cin;
 
 endmodule
 
  
-module SLTout#(n)(input logic [n-1:0] Result, input logic Cout, OVs, S0, S3, output logic [n-1:0] SLToutcome);
+module SLTout#(parameter n = 4)(
+	input  logic [n-1:0] Result, 
+	input  logic Cout, OVs, S0, S3, 
+	output logic [n-1:0] SLToutcome
+);
 
-logic outcome0,outcome1;
-logic [n-1:0] ZeroExt;
+	logic outcome0,outcome1;
+	logic [n-1:0] ZeroExt;
 
-parameterized_mux2to1 #(n) SLTmux(Result[n-1], Cout, OVs, outcome0);
+	mux2to1 #(n) SLTmux(OVs, Result[n-1], Cout, outcome0);
 
-parameterized_mux2to1 #(n) SLTmux2(outcome0, ~Cout, S0, outcome1);
+	mux2to1 #(n) SLTmux2(S0, outcome0, ~Cout, outcome1);
 
-assign ZeroExt = {{(n-1){1'b0}}, outcome1};
+	assign ZeroExt = {{(n-1){1'b0}}, outcome1};
 
-parameterized_mux2to1 #(n) SLTmux3(Result, ZeroExt, S3, SLToutcome);
+	mux2to1 #(n) SLTmux3(S3, Result, ZeroExt, SLToutcome);
+
+endmodule
+module mux4_1Test #(parameter n = 4) (
+	input  logic [n-1:0] A,B, 
+	input  logic [n-1:0] F0,F1,
+	output logic [n-1:0] Y
+);
+	logic [n-1:0] lo, hi;
+	logic [n-1:0] D0,D1,D2,D3;
+
+	assign D0 = A&B;
+	assign D1 = A|B;
+	assign D2 = A^B;
+	assign D3 = ~(A|B);
+
+	mux2to1 #(n) lomux (F0, D0, D1, lo); //width = W
+	mux2to1 #(n) himux (F0, D2, D3, hi); //width = W
+	mux2to1 #(n) oumux (F1, lo, hi, Y); //width = W
 
 endmodule
 // ALU 
@@ -576,15 +603,6 @@ module mux4to1 #(parameter W = 2) (
 	assign y  = s[1]?  hi : lo;
 	
 endmodule	
-
-module parameterized_mux2to1
-#(w) (
-// default value of width is 8
-input logic [2**w-1:0] d0, d1, input logic s,
-output logic [2**w-1:0] y
-);
-assign y = s ? d1 : d0; // observe: multi-bit assignment!
-endmodule
 // 2 to 1 mux
 module mux2to1 #(parameter W = 1) (
 	input  logic s, 
