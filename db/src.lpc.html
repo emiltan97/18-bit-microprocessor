@@ -290,13 +290,13 @@
 <TR >
 <TD >mycpu|jtamux1</TD>
 <TD >33</TD>
-<TD >8</TD>
+<TD >4</TD>
 <TD >0</TD>
-<TD >8</TD>
+<TD >4</TD>
 <TD >16</TD>
-<TD >8</TD>
-<TD >8</TD>
-<TD >8</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -306,13 +306,13 @@
 <TR >
 <TD >mycpu|mybranchctrl|inst0</TD>
 <TD >33</TD>
+<TD >30</TD>
 <TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
+<TD >30</TD>
 <TD >16</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
+<TD >30</TD>
+<TD >30</TD>
+<TD >30</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -323,7 +323,7 @@
 <TD >mycpu|mybranchctrl</TD>
 <TD >36</TD>
 <TD >0</TD>
-<TD >16</TD>
+<TD >0</TD>
 <TD >0</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -481,14 +481,14 @@
 </TR>
 <TR >
 <TD >mycpu|myshift</TD>
-<TD >131074</TD>
-<TD >196560</TD>
+<TD >34</TD>
 <TD >0</TD>
-<TD >196560</TD>
-<TD >65536</TD>
-<TD >196560</TD>
-<TD >196560</TD>
-<TD >196560</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >16</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -496,7 +496,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|mux1</TD>
+<TD >mycpu|myalu|ResultLogicmux2</TD>
 <TD >33</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -512,8 +512,8 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|mux0</TD>
-<TD >66</TD>
+<TD >mycpu|myalu|LogicOutcome|oumux</TD>
+<TD >33</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -528,7 +528,55 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|slt0|mux2</TD>
+<TD >mycpu|myalu|LogicOutcome|himux</TD>
+<TD >33</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >16</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|myalu|LogicOutcome|lomux</TD>
+<TD >33</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >16</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|myalu|LogicOutcome</TD>
+<TD >64</TD>
+<TD >30</TD>
+<TD >0</TD>
+<TD >30</TD>
+<TD >16</TD>
+<TD >30</TD>
+<TD >30</TD>
+<TD >30</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|myalu|SLTTest|SLTmux3</TD>
 <TD >33</TD>
 <TD >15</TD>
 <TD >0</TD>
@@ -544,31 +592,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|slt0|mux1</TD>
-<TD >3</TD>
+<TD >mycpu|myalu|SLTTest|SLTmux2</TD>
+<TD >33</TD>
+<TD >45</TD>
 <TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mycpu|myalu|slt0|mux0</TD>
-<TD >3</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
+<TD >45</TD>
+<TD >16</TD>
+<TD >45</TD>
+<TD >45</TD>
+<TD >45</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -576,7 +608,23 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|slt0</TD>
+<TD >mycpu|myalu|SLTTest|SLTmux</TD>
+<TD >33</TD>
+<TD >45</TD>
+<TD >0</TD>
+<TD >45</TD>
+<TD >16</TD>
+<TD >45</TD>
+<TD >45</TD>
+<TD >45</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|myalu|SLTTest</TD>
 <TD >20</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -592,7 +640,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|add0|mux1</TD>
+<TD >mycpu|myalu|OVmux</TD>
 <TD >33</TD>
 <TD >45</TD>
 <TD >0</TD>
@@ -608,44 +656,28 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|myalu|add0|add0|mux1</TD>
+<TD >mycpu|myalu|Test123</TD>
+<TD >33</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >17</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|myalu|ALUmux</TD>
 <TD >33</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >16</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mycpu|myalu|add0|add0</TD>
-<TD >33</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >33</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mycpu|myalu|add0</TD>
-<TD >34</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >19</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -737,7 +769,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[15].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -753,7 +785,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[14].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -769,7 +801,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[13].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -785,7 +817,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[12].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -801,7 +833,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[11].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -817,7 +849,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[10].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -833,7 +865,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[9].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -849,7 +881,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[8].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -865,7 +897,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[7].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -881,7 +913,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[6].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -897,7 +929,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[5].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -913,7 +945,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[4].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -929,7 +961,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[3].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -945,7 +977,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[2].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -961,7 +993,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[1].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -977,7 +1009,7 @@
 </TR>
 <TR >
 <TD >mycpu|myreg|bloop[0].itk</TD>
-<TD >19</TD>
+<TD >18</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -1009,11 +1041,43 @@
 </TR>
 <TR >
 <TD >mycpu|myreg</TD>
-<TD >30</TD>
+<TD >29</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >32</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|jumpmux0</TD>
+<TD >9</TD>
+<TD >4</TD>
+<TD >0</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >mycpu|branchmux0</TD>
+<TD >9</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -1056,38 +1120,6 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mycpu|jumpmux0</TD>
-<TD >9</TD>
-<TD >4</TD>
-<TD >0</TD>
-<TD >4</TD>
-<TD >4</TD>
-<TD >4</TD>
-<TD >4</TD>
-<TD >4</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mycpu|branchmux0</TD>
-<TD >9</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >4</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
 <TD >mycpu|myrom</TD>
 <TD >4</TD>
 <TD >0</TD>
@@ -1105,11 +1137,11 @@
 </TR>
 <TR >
 <TD >mycpu</TD>
-<TD >2</TD>
+<TD >1</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
-<TD >42</TD>
+<TD >26</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>

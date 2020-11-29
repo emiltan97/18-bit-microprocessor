@@ -9,19 +9,19 @@ module src(
 ); 
 
 	logic [31:0] q; 
-	logic [15:0] oup, pc; 
+	logic [15:0] oup; 
 	
 	counter32 myclock(CLOCK_50, q); 
 	
-	assign LEDG[0] = q[25]; 
+	assign LEDG[0] = SW[0] ? KEY[0] : q[25]; 
 	
-	CPU mycpu(KEY[0], SW[0], oup, LEDR[5:0], LEDR[9:6], pc);
+	CPU mycpu(SW[0] ? KEY[0] : q[25], oup, LEDR[5:0], LEDR[9:6]);
 	
-	ssd ins0((SW[1] ? pc[3:3] : oup[3:0]), HEX0); 
-	ssd ins1((SW[1] ? pc[7:4] : oup[7:4]), HEX1); 
-	ssd ins2((SW[1] ? pc[11:8] : oup[11:8]), HEX2); 
-	ssd ins3((SW[1] ? pc[15:12] : oup[15:12]), HEX3);
-	
+	ssd ins0(oup[3:0], HEX0);
+	ssd ins1(oup[7:4], HEX1);
+	ssd ins2(oup[11:8], HEX2);
+	ssd ins3(oup[15:12], HEX3);
+
 endmodule
 // Slower clock
 module counter32 (
@@ -36,11 +36,9 @@ endmodule
 // CPU
 module CPU (
 	input  logic clk, 
-	input  logic en, 
 	output logic [15:0] outport,
 	output logic [5:0] opprio,
-	output logic [3:0] rprio,
-	output logic [15:0] pcout
+	output logic [3:0] rprio
 ); 
 
 	logic pc_carry, funct, jump, branch, MemEn, isBranch, jumpWrite; 
@@ -57,7 +55,7 @@ module CPU (
 	
 	always_ff @(posedge clk) 
 		begin
-			if (en) pc <= pc_next; 
+			pc <= pc_next; 
 			outport <= WD; 
 		end
 	
@@ -66,19 +64,18 @@ module CPU (
 	assign funct  = instruction[12];
 	assign opcode = instruction[17:13];
 	
-	assign isBranch = opprio[1] | opprio[2];
-	assign jump = (opprio[5] & rprio[0]) | opprio[0];
-	mux2to1 #(4) branchmux0(isBranch, instruction[3:0], instruction[11:8], RA1); 
-	assign Imm    = instruction[11:8];
-	assign RA2    = instruction[7:4]; 
-	assign jumpWrite = jump & funct; 
-	mux2to1 #(4) jumpmux0(jumpWrite, instruction[3:0], 4'b1111, WA); 
-	assign JTA    = {8'b0, instruction[7:0]}; 
-	
 	OpPrioDecoder myopdecoder(opcode, opprio); 
 	RTypePrioDecoder myrtypedecoder(opcode[3:1], rprio);  
+	
+	assign isBranch = opprio[1] | opprio[2];
+	assign jump = (opprio[5] & rprio[0]) | opprio[0];
+	mux2to1 #(4) branchmux0(isBranch, instruction[11:8], instruction[3:0], RA1);
+	assign Imm    = instruction[11:8];
+	assign RA2    = instruction[7:4]; 
+	mux2to1 #(4) jumpmux0(jump & funct, instruction[3:0], 4'b1111, WA); 
+	assign JTA    = {4'b0, instruction[11:0]}; 
  
-	regfile #(16, 4) myreg(clk, en, RA1, RA2, WA, WD, RD1, RD2); 
+	regfile #(16, 4) myreg(clk, RA1, RA2, WA, WD, RD1, RD2); 
 	
 	assign ALUSrc[0] = instruction[12] & instruction[13]; 
 	assign ALUSrc[1] = instruction[14]; 
@@ -89,13 +86,13 @@ module CPU (
 	mux2to1 #(16) mux1 (ALUSrc[1], SignImm, immOut0, immOut1); 
 	mux2to1 #(16) mux2 (ALUSrc[2], immOut1, RD1, immOut2); 
 
-	ALU #(16) myalu(RD2, immOut2, {opcode[2:0], funct}, ALUout);
+	ALU #(16) myalu({opcode[2:0], funct}, RD2, immOut2, ALUout);
 	shifter #(16) myshift({opcode[0], funct}, RD2, RD1, shiftout);
 	multiDiv #(16) mymult(RD2, RD1, clk, {opcode[1:0], funct}, multout);
-
+	
 	tristate_active_hi #(16) ALUTest(ALUout, rprio[3], opout); 
-	tristate_active_hi #(16) ShiftTest(shiftout, rprio[1], opout); 
-	tristate_active_hi #(16) MultTest(multout, rprio[2], opout);
+	tristate_active_hi #(16) ShiftTest(shiftout, rprio[1] & instruction[17], opout); 
+	tristate_active_hi #(16) MultTest(multout, rprio[2] & instruction[17], opout);
 	
 	assign BTA  = pc_plus_one + (SignImm << 2);
 	
@@ -104,7 +101,7 @@ module CPU (
 	logic [15:0] jm; // Jump to mem signal
 	
 	BranchControl mybranchctrl(RD1, RD2, funct, opcode[0], opprio[1], opprio[2], branch); 
-	
+
 	mux2to1 #(16) jtamux1(opprio[5], JTA, RD1, js); 
 	mux2to1 #(16) jtamux2(~jump, js, pc_plus_one, jb); 
 	mux2to1 #(16) jtamux3(branch, jb, BTA, pc_next);
@@ -112,9 +109,8 @@ module CPU (
 	MemoryAccess mem1(RD2, RAMout, instruction, ALUout[0], MemRd, MemDin, MemEn);
 	RAM #(6, 16) mem2 (ALUout[6:1], MemDin, clk, MemEn, RAMout);
 	
-	mux2to1 #(16) jumpmux1(jumpWrite, opout, pc_plus_one, jm); 
+	mux2to1 #(16) jumpmux1(jump & funct, opout, pc_plus_one, jm); 
 	mux2to1 #(16) memmux1(opprio[3], jm, MemRd, WD);
-	assign pcout = pc_next;
 	
 endmodule
 // ROM
@@ -126,14 +122,14 @@ module ROM #(parameter m=7,w=4) (
   assign Dout = mem[Ad];
   
   initial begin
-    $readmemb("instructions.txt",mem); 
+    $readmemb("instruction_mult.txt",mem); 
   end
 
 endmodule
 // Register file 
 module regfile
 #(parameter w=4, m=4) (
-	input logic clk, en,
+	input logic clk,
 	input logic [m-1:0] RAd0, RAd1, WAd,
 	input logic [w-1:0] Din,
 	output logic [w-1:0] Dout0, Dout1
@@ -147,147 +143,105 @@ module regfile
 	genvar k;
 	generate
 	for(k=0; k<2**m; k=k+1) begin: bloop
-		EnabledReg #(w) itk(clk, WEn[k], en, Din,Q[k]);
+		EnabledReg #(w) itk(clk, WEn[k], Din,Q[k]);
 	end
 	endgenerate
 		
 endmodule
 // ALU
-module ALU#(n)(input logic [n-1:0] A,input logic [n-1:0] B, input logic [3:0]S, output logic [n-1:0] Y);
+module ALU#(parameter n = 4)(
+	input  logic [3:0] S, 
+	input  logic [n-1:0] A,
+	input  logic [n-1:0] B, 
+	output logic [n-1:0] Y
+);
 
-logic Cin, Cout;
-logic OVs, Ovu;
-logic [n-1:0] Result, LogicOut, SLTResult;
-logic [n-1:0] B_out;
-logic	[n-1:0] D0,D1;
-
-
-assign D0 = B;
-assign D1 = ~B;
-assign CoutFlag = Cout;
-
-parameterized_mux2to1 #(n) ALUmux(D0, D1, S[1], B_out);
-
-assign Cin = S[1];
-ALU_Adder #(n)Test123(A,B_out,Cin, Result,Cout);
-assign OVs = (Result[n-1] ^ A[n-1]) & ~(A[n-1] ^ B_out[n-1]);
-assign Ovu = S[1] ^ Cout;
+	logic Cin, Cout;
+	logic OVs, Ovu;
+	logic [n-1:0] Result, LogicOut, SLTResult;
+	logic [n-1:0] B_out;
+	logic [n-1:0] D0,D1;
 
 
-parameterized_mux2to1 #(n) OVmux(OVs, Ovu, S[0], Z);
+	assign D0 = B;
+	assign D1 = ~B;
+	assign CoutFlag = Cout;
 
+	mux2to1 #(n) ALUmux(S[1], D0, D1, B_out);
 
-SLTout#(n) SLTTest(Result, Cout, OVs, S[0], (S[3]&S[1]), SLTResult);
+	assign Cin = S[1];
+	ALU_Adder #(n)Test123(A,B_out,Cin, Result,Cout);
+	assign OVs = (Result[n-1] ^ A[n-1]) & ~(A[n-1] ^ B_out[n-1]);
+	assign Ovu = S[1] ^ Cout;
 
-mux4_1Test#(n) LogicOutcome(A,B,S[0],S[1],LogicOut);
+	mux2to1 #(n) OVmux(S[0], OVs, Ovu, Z);
 
-parameterized_mux2to1 #(n) ResultLogicmux2(SLTResult, LogicOut, S[2], Y);
+	SLTout#(n) SLTTest(Result, Cout, OVs, S[0], (S[3]&S[1]), SLTResult);
 
+	mux4_1Test#(n) LogicOutcome(A,B,S[0],S[1],LogicOut);
+
+	mux2to1 #(n) ResultLogicmux2(S[2], SLTResult, LogicOut, Y);
 
 endmodule
 
 
-module ALU_Adder#(n)(input logic [n-1:0] a,b, input logic Cin, output logic [n-1:0] Y, output logic Cout);
+module ALU_Adder#(parameter n = 4)(
+	input  logic [n-1:0] a,b, 
+	input  logic Cin, 
+	output logic [n-1:0] Y, 
+	output logic Cout
+);
 
-assign {Cout,Y} = a + b + Cin;
+	assign {Cout,Y} = a + b + Cin;
 
 endmodule
 
  
-module SLTout#(n)(input logic [n-1:0] Result, input logic Cout, OVs, S0, S3, output logic [n-1:0] SLToutcome);
+module SLTout#(parameter n = 4)(
+	input  logic [n-1:0] Result, 
+	input  logic Cout, OVs, S0, S3, 
+	output logic [n-1:0] SLToutcome
+);
 
-logic outcome0,outcome1;
-logic [n-1:0] ZeroExt;
+	logic outcome0,outcome1;
+	logic [n-1:0] ZeroExt;
 
-parameterized_mux2to1 #(n) SLTmux(Result[n-1], Cout, OVs, outcome0);
+	mux2to1 #(n) SLTmux(OVs, Result[n-1], Cout, outcome0);
 
-parameterized_mux2to1 #(n) SLTmux2(outcome0, ~Cout, S0, outcome1);
+	mux2to1 #(n) SLTmux2(S0, outcome0, ~Cout, outcome1);
 
-assign ZeroExt = {{(n-1){1'b0}}, outcome1};
+	assign ZeroExt = {{(n-1){1'b0}}, outcome1};
 
-parameterized_mux2to1 #(n) SLTmux3(Result, ZeroExt, S3, SLToutcome);
+	mux2to1 #(n) SLTmux3(S3, Result, ZeroExt, SLToutcome);
 
 endmodule
-// ALU 
-//module ALU #(parameter n = 4) (
-//	input  logic [3:0] F, 
-//	input  logic [n - 1:0] A, B,
-//	output logic [n - 1:0] Y
-//); 
-//
-//	logic [n - 1:0] S, AUout, logicOut; 
-//	logic OVs; 
-//
-//	adderOV #(n) add0(F[1:0], A, B, Cout, OV, OVs, S);
-//	SLT #(n) slt0(OVs, Cout, F[0], F[3], S, AUout);
-//	mux4to1 #(n) mux0(
-//		(A & B), (A | B), (A^B), ~(A | B), 
-//		F[1:0], 
-//		logicOut
-//	);
-//	mux2to1 #(n) mux1(F[2], AUout, logicOut, Y);
-//	
-//endmodule 
-//// Adder with overflow module
-//module adderOV #(parameter n = 4) (
-//	input  logic [1:0] s, 
-//	input  logic [n - 1:0] a, b, 
-//	output logic Cout, OV, OVs,
-//	output logic [n - 1:0] S
-//);
-//
-//	logic OVu;
-//	logic [n - 1:0] B;
-//	
-//	adder #(n) add0(a, b, s[1], S, B, Cout); 
-//	
-//	assign OVs = (S[n-1] ^ a[n-1]) & ~(a[n-1] ^ B[n-1]);
-//	assign OVu = s[1] ^ Cout; 
-//	
-//	mux2to1 #(n) mux1(s[0], OVs, OVu, OV);
-//
-//endmodule
-//// Adder module in ALU
-//module adder #(parameter W = 4) (
-//	input  logic [W - 1:0] A, B,
-//	input  logic s,
-//	output logic [W - 1:0] Y,	
-//	output logic [W - 1:0] b,
-//	output logic cout
-//); 
-//
-//	mux2to1 #(W) mux1(s, B, ~B, b);
-//
-//	assign {cout,Y} = A + b + s;
-//
-//endmodule 
-//// SLT module in ALU
-//module SLT #(parameter n = 4) (
-//	input  logic  OVs, Cout, s0, s2,
-//	input  logic [n - 1:0] S,
-//	output logic [n - 1:0] AUout 
-//); 
-//
-//	logic x, y;
-//	logic [n - 1:0] z;
-//
-//	mux2to1 #(1) mux0 (OVs, S[n-1], Cout, x); 	
-//	mux2to1 #(1) mux1 (s0, x, ~Cout, y); 
-//	
-//	assign z = { {(n - 1){1'b0}}, y };
-//	
-//	mux2to1 #(n) mux2 (s2, S, z, AUout); 
-//
-//endmodule 
+module mux4_1Test #(parameter n = 4) (
+	input  logic [n-1:0] A,B, 
+	input  logic [n-1:0] F0,F1,
+	output logic [n-1:0] Y
+);
+	logic [n-1:0] lo, hi;
+	logic [n-1:0] D0,D1,D2,D3;
+
+	assign D0 = A&B;
+	assign D1 = A|B;
+	assign D2 = A^B;
+	assign D3 = ~(A|B);
+
+	mux2to1 #(n) lomux (F0, D0, D1, lo); //width = W
+	mux2to1 #(n) himux (F0, D2, D3, hi); //width = W
+	mux2to1 #(n) oumux (F1, lo, hi, Y); //width = W
+
+endmodule
 // Shifter
 module shifter #(parameter n = 4) (
 	input  logic [1:0] F, 
-	input  logic [2**n - 1:0] A, 
-	input  logic [2**n - 1:0] Sh, 
-	output logic [2**n - 1:0] Y 
+	input  logic [n - 1:0] A, 
+	input  logic [n - 1:0] Sh, 
+	output logic [n - 1:0] Y 
 );
 
-	logic [2**n - 1:0] D0, D1; 
+	logic [n - 1:0] D0, D1; 
 	
 	assign D0 = F[0]?  (A >> Sh)           : (A << Sh);
 	assign D1 = F[0]?  ($signed(A) >>> Sh) : (A);
@@ -342,10 +296,10 @@ module BranchControl (
 
 	// type 2 branch control signals
 	assign y[0] = a ^ b; 
-	assign y[1] = ~(y[0] | y[0]); 
-	assign y[2] = funct ^ y[2]; 
+	assign y[1] = ~(|y[0]); 
+	assign y[2] = funct ^ y[1]; 
 	
-	assign y[3] = ~(b | b); 
+	assign y[3] = ~(|b); 
 	assign y[4] = b[15] | y[3]; 
 	assign y[5] = y[4] ^ funct; 
 	
@@ -357,7 +311,7 @@ module BranchControl (
 	assign y[8] = a[0] ^ b[15]; 
 	assign y[9] = y[8] & b1; 
 	
-	assign branch = y[6] | y[9]; 
+	assign branch = y[7] | y[9]; 
 
 endmodule
 // Opcode Decoder Priority
@@ -415,12 +369,13 @@ endmodule
 // Register Enabler
 module EnabledReg
 #(parameter w=3) (
-	input logic clk, en, enable,
+	input logic clk, en,
 	input logic [w-1:0] D,
 	output logic [w-1:0] Q
 );
 	always @(posedge clk) 
-		if(en & enable) Q <= D;
+//		if(en & enable) Q <= D;
+		if(en) Q <= D;
 
 endmodule
 // Mem access memin control signals
@@ -576,15 +531,6 @@ module mux4to1 #(parameter W = 2) (
 	assign y  = s[1]?  hi : lo;
 	
 endmodule	
-
-module parameterized_mux2to1
-#(w) (
-// default value of width is 8
-input logic [2**w-1:0] d0, d1, input logic s,
-output logic [2**w-1:0] y
-);
-assign y = s ? d1 : d0; // observe: multi-bit assignment!
-endmodule
 // 2 to 1 mux
 module mux2to1 #(parameter W = 1) (
 	input  logic s, 
