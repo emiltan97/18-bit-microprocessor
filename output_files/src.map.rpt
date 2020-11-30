@@ -1,5 +1,5 @@
 Analysis & Synthesis report for src
-Sun Nov 29 17:31:35 2020
+Mon Nov 30 13:47:21 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,8 +13,8 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis DSP Block Usage Summary
-  9. Registers Removed During Synthesis
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
  12. Parameter Settings for User Entity Instance: CPU:mycpu|ROM:myrom
@@ -77,31 +77,29 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  69. Parameter Settings for User Entity Instance: CPU:mycpu|RAM:mem2
  70. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:jumpmux1
  71. Parameter Settings for User Entity Instance: CPU:mycpu|mux2to1:memmux1
- 72. Parameter Settings for Inferred Entity Instance: CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0
- 73. Parameter Settings for Inferred Entity Instance: CPU:mycpu|multiDiv:mymult|lpm_divide:Div0
- 74. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2"
- 75. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd1"
- 76. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn2"
- 77. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn1"
- 78. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem"
- 79. Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux1"
- 80. Port Connectivity Checks: "CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0"
- 81. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome|mux2to1:oumux"
- 82. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome|mux2to1:himux"
- 83. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome|mux2to1:lomux"
- 84. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome"
- 85. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLTout:SLTTest|mux2to1:SLTmux3"
- 86. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLTout:SLTTest|mux2to1:SLTmux2"
- 87. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLTout:SLTTest|mux2to1:SLTmux"
- 88. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux2to1:OVmux"
- 89. Port Connectivity Checks: "CPU:mycpu|mux2to1:jumpmux0"
- 90. Port Connectivity Checks: "CPU:mycpu|OpPrioDecoder:myopdecoder"
- 91. Port Connectivity Checks: "CPU:mycpu|ROM:myrom"
- 92. Port Connectivity Checks: "counter32:myclock"
- 93. Post-Synthesis Netlist Statistics for Top Partition
- 94. Elapsed Time Per Partition
- 95. Analysis & Synthesis Messages
- 96. Analysis & Synthesis Suppressed Messages
+ 72. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2"
+ 73. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd1"
+ 74. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn2"
+ 75. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem|mux2to1:MemIn1"
+ 76. Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem"
+ 77. Port Connectivity Checks: "CPU:mycpu|mux2to1:jtamux1"
+ 78. Port Connectivity Checks: "CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0"
+ 79. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome|mux2to1:oumux"
+ 80. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome|mux2to1:himux"
+ 81. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome|mux2to1:lomux"
+ 82. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome"
+ 83. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLTout:SLTTest|mux2to1:SLTmux3"
+ 84. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLTout:SLTTest|mux2to1:SLTmux2"
+ 85. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|SLTout:SLTTest|mux2to1:SLTmux"
+ 86. Port Connectivity Checks: "CPU:mycpu|ALU:myalu|mux2to1:OVmux"
+ 87. Port Connectivity Checks: "CPU:mycpu|mux2to1:jumpmux0"
+ 88. Port Connectivity Checks: "CPU:mycpu|OpPrioDecoder:myopdecoder"
+ 89. Port Connectivity Checks: "CPU:mycpu|ROM:myrom"
+ 90. Port Connectivity Checks: "counter32:myclock"
+ 91. Post-Synthesis Netlist Statistics for Top Partition
+ 92. Elapsed Time Per Partition
+ 93. Analysis & Synthesis Messages
+ 94. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -127,17 +125,17 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 29 17:31:35 2020           ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 30 13:47:21 2020           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; src                                             ;
 ; Top-level Entity Name           ; src                                             ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 206                                             ;
+; Total registers                 ; 69                                              ;
 ; Total pins                      ; 61                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
-; Total DSP Blocks                ; 1                                               ;
+; Total DSP Blocks                ; 0                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
 ; Total HSSI TX PCSs              ; 0                                               ;
@@ -247,257 +245,398 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                              ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                          ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
-; src.sv                           ; yes             ; User SystemVerilog HDL File  ; U:/ELEC4720/simple-microprocessor/src.sv                              ;         ;
-; instruction_mult.txt             ; yes             ; Auto-Found File              ; U:/ELEC4720/simple-microprocessor/instruction_mult.txt                ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc      ;         ;
-; db/lpm_divide_a5m.tdf            ; yes             ; Auto-Generated Megafunction  ; U:/ELEC4720/simple-microprocessor/db/lpm_divide_a5m.tdf               ;         ;
-; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction  ; U:/ELEC4720/simple-microprocessor/db/sign_div_unsign_dnh.tdf          ;         ;
-; db/alt_u_div_03f.tdf             ; yes             ; Auto-Generated Megafunction  ; U:/ELEC4720/simple-microprocessor/db/alt_u_div_03f.tdf                ;         ;
-; db/lpm_divide_7dm.tdf            ; yes             ; Auto-Generated Megafunction  ; U:/ELEC4720/simple-microprocessor/db/lpm_divide_7dm.tdf               ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+; src.sv                           ; yes             ; User SystemVerilog HDL File  ; U:/ELEC4720/simple-microprocessor/src.sv         ;         ;
+; test_clock.txt                   ; yes             ; Auto-Found File              ; U:/ELEC4720/simple-microprocessor/test_clock.txt ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimate of Logic utilization (ALMs needed) ; 509    ;
-;                                             ;        ;
-; Combinational ALUT usage for logic          ; 907    ;
-;     -- 7 input functions                    ; 15     ;
-;     -- 6 input functions                    ; 78     ;
-;     -- 5 input functions                    ; 310    ;
-;     -- 4 input functions                    ; 255    ;
-;     -- <=3 input functions                  ; 249    ;
-;                                             ;        ;
-; Dedicated logic registers                   ; 206    ;
-;                                             ;        ;
-; I/O pins                                    ; 61     ;
-;                                             ;        ;
-; Total DSP Blocks                            ; 1      ;
-;                                             ;        ;
-; Maximum fan-out node                        ; comb~0 ;
-; Maximum fan-out                             ; 180    ;
-; Total fan-out                               ; 4642   ;
-; Average fan-out                             ; 3.76   ;
-+---------------------------------------------+--------+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                             ;
++---------------------------------------------+---------------------------+
+; Resource                                    ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 65                        ;
+;                                             ;                           ;
+; Combinational ALUT usage for logic          ; 94                        ;
+;     -- 7 input functions                    ; 0                         ;
+;     -- 6 input functions                    ; 30                        ;
+;     -- 5 input functions                    ; 4                         ;
+;     -- 4 input functions                    ; 32                        ;
+;     -- <=3 input functions                  ; 28                        ;
+;                                             ;                           ;
+; Dedicated logic registers                   ; 69                        ;
+;                                             ;                           ;
+; I/O pins                                    ; 61                        ;
+;                                             ;                           ;
+; Total DSP Blocks                            ; 0                         ;
+;                                             ;                           ;
+; Maximum fan-out node                        ; CPU:mycpu|ROM:myrom|mem~1 ;
+; Maximum fan-out                             ; 70                        ;
+; Total fan-out                               ; 764                       ;
+; Average fan-out                             ; 2.68                      ;
++---------------------------------------------+---------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                           ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                            ; Entity Name           ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |src                                         ; 907 (2)             ; 206 (0)                   ; 0                 ; 1          ; 61   ; 0            ; |src                                                                                                                           ; src                   ; work         ;
-;    |CPU:mycpu|                               ; 851 (7)             ; 180 (20)                  ; 0                 ; 1          ; 0    ; 0            ; |src|CPU:mycpu                                                                                                                 ; CPU                   ; work         ;
-;       |ALU:myalu|                            ; 28 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu                                                                                                       ; ALU                   ; work         ;
-;          |ALU_Adder:Test123|                 ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|ALU_Adder:Test123                                                                                     ; ALU_Adder             ; work         ;
-;          |mux2to1:ResultLogicmux2|           ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|mux2to1:ResultLogicmux2                                                                               ; mux2to1               ; work         ;
-;       |BranchControl:mybranchctrl|           ; 26 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|BranchControl:mybranchctrl                                                                                      ; BranchControl         ; work         ;
-;          |mux2to1:inst0|                     ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|BranchControl:mybranchctrl|mux2to1:inst0                                                                        ; mux2to1               ; work         ;
-;       |OpPrioDecoder:myopdecoder|            ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|OpPrioDecoder:myopdecoder                                                                                       ; OpPrioDecoder         ; work         ;
-;       |ROM:myrom|                            ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ROM:myrom                                                                                                       ; ROM                   ; work         ;
-;       |multiDiv:mymult|                      ; 635 (2)             ; 32 (32)                   ; 0                 ; 1          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult                                                                                                 ; multiDiv              ; work         ;
-;          |lpm_divide:Div0|                   ; 286 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
-;             |lpm_divide_7dm:auto_generated|  ; 286 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Div0|lpm_divide_7dm:auto_generated                                                   ; lpm_divide_7dm        ; work         ;
-;                |sign_div_unsign_dnh:divider| ; 286 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Div0|lpm_divide_7dm:auto_generated|sign_div_unsign_dnh:divider                       ; sign_div_unsign_dnh   ; work         ;
-;                   |alt_u_div_03f:divider|    ; 286 (286)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Div0|lpm_divide_7dm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_03f:divider ; alt_u_div_03f         ; work         ;
-;          |lpm_divide:Mod0|                   ; 300 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0                                                                                 ; lpm_divide            ; work         ;
-;             |lpm_divide_a5m:auto_generated|  ; 300 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0|lpm_divide_a5m:auto_generated                                                   ; lpm_divide_a5m        ; work         ;
-;                |sign_div_unsign_dnh:divider| ; 300 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0|lpm_divide_a5m:auto_generated|sign_div_unsign_dnh:divider                       ; sign_div_unsign_dnh   ; work         ;
-;                   |alt_u_div_03f:divider|    ; 300 (300)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0|lpm_divide_a5m:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_03f:divider ; alt_u_div_03f         ; work         ;
-;          |mux2to1:mux3|                      ; 31 (31)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|mux2to1:mux3                                                                                    ; mux2to1               ; work         ;
-;          |mux2to1:mux4|                      ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|multiDiv:mymult|mux2to1:mux4                                                                                    ; mux2to1               ; work         ;
-;       |mux2to1:branchmux0|                   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:branchmux0                                                                                              ; mux2to1               ; work         ;
-;       |mux2to1:jtamux3|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:jtamux3                                                                                                 ; mux2to1               ; work         ;
-;       |mux2to1:jumpmux1|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:jumpmux1                                                                                                ; mux2to1               ; work         ;
-;       |mux2to1:memmux1|                      ; 37 (37)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:memmux1                                                                                                 ; mux2to1               ; work         ;
-;       |mux2to1:mux2|                         ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:mux2                                                                                                    ; mux2to1               ; work         ;
-;       |regfile:myreg|                        ; 73 (65)             ; 128 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg                                                                                                   ; regfile               ; work         ;
-;          |EnabledReg:bloop[0].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[1].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[1].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[2].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[2].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[3].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[4].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[5].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[6].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk                                                                           ; EnabledReg            ; work         ;
-;          |EnabledReg:bloop[7].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk                                                                           ; EnabledReg            ; work         ;
-;          |parameterized_decoder:decw|        ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|parameterized_decoder:decw                                                                        ; parameterized_decoder ; work         ;
-;    |counter32:myclock|                       ; 26 (26)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |src|counter32:myclock                                                                                                         ; counter32             ; work         ;
-;    |ssd:ins0|                                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins0                                                                                                                  ; ssd                   ; work         ;
-;    |ssd:ins1|                                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins1                                                                                                                  ; ssd                   ; work         ;
-;    |ssd:ins2|                                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins2                                                                                                                  ; ssd                   ; work         ;
-;    |ssd:ins3|                                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins3                                                                                                                  ; ssd                   ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                             ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name           ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+-----------------------+--------------+
+; |src                                  ; 94 (2)              ; 69 (0)                    ; 0                 ; 0          ; 61   ; 0            ; |src                                                    ; src                   ; work         ;
+;    |CPU:mycpu|                        ; 63 (4)              ; 68 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu                                          ; CPU                   ; work         ;
+;       |ALU:myalu|                     ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu                                ; ALU                   ; work         ;
+;          |ALU_Adder:Test123|          ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|ALU_Adder:Test123              ; ALU_Adder             ; work         ;
+;          |mux2to1:ALUmux|             ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ALU:myalu|mux2to1:ALUmux                 ; mux2to1               ; work         ;
+;       |OpPrioDecoder:myopdecoder|     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|OpPrioDecoder:myopdecoder                ; OpPrioDecoder         ; work         ;
+;       |ROM:myrom|                     ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|ROM:myrom                                ; ROM                   ; work         ;
+;       |mux2to1:jtamux3|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|mux2to1:jtamux3                          ; mux2to1               ; work         ;
+;       |regfile:myreg|                 ; 32 (31)             ; 48 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg                            ; regfile               ; work         ;
+;          |EnabledReg:bloop[0].itk|    ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk    ; EnabledReg            ; work         ;
+;          |EnabledReg:bloop[1].itk|    ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[1].itk    ; EnabledReg            ; work         ;
+;          |EnabledReg:bloop[2].itk|    ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|EnabledReg:bloop[2].itk    ; EnabledReg            ; work         ;
+;          |parameterized_decoder:decw| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|CPU:mycpu|regfile:myreg|parameterized_decoder:decw ; parameterized_decoder ; work         ;
+;    |counter32:myclock|                ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |src|counter32:myclock                                  ; counter32             ; work         ;
+;    |ssd:ins0|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins0                                           ; ssd                   ; work         ;
+;    |ssd:ins1|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins1                                           ; ssd                   ; work         ;
+;    |ssd:ins2|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins2                                           ; ssd                   ; work         ;
+;    |ssd:ins3|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |src|ssd:ins3                                           ; ssd                   ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary  ;
-+---------------------------------+-------------+
-; Statistic                       ; Number Used ;
-+---------------------------------+-------------+
-; Two Independent 18x18           ; 1           ;
-; Total number of DSP blocks      ; 1           ;
-;                                 ;             ;
-; Fixed Point Unsigned Multiplier ; 1           ;
-+---------------------------------+-------------+
++--------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                     ;
++----------------------------------------------------------+---------------------------------------------+
+; Register name                                            ; Reason for Removal                          ;
++----------------------------------------------------------+---------------------------------------------+
+; counter32:myclock|q[1..31]                               ; Lost fanout                                 ;
+; CPU:mycpu|multiDiv:mymult|hi[0]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[0]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[1]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[1]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[2]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[2]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[3]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[3]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[4]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[4]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[5]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[5]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[6]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[6]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[7]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[7]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[8]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[8]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[9]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[9]                          ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[10]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[10]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[11]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[11]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[12]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[12]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[13]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[13]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[14]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[14]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|hi[15]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|multiDiv:mymult|lo[15]                         ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[0]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[0]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[0]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[0]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[0]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[0]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[0]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[0]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[0]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[0]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[0]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[0]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[15]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[15]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[15]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[1,15] ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[1]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[1]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[1]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[1]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[1]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[1]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[1]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[1]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[1]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[1]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[1]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[2]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[2]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[2]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[2]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[2]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[2]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[2]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[2]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[2]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[2]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[2]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[2]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[3]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[3]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[3]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[3]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[3]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[3]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[3]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[3]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[3]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[3]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[3]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[3]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[15]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[15]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[15]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[15]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[15]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[15]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[15]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[15]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[4]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[4]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[4]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[4]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[4]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[4]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[4]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[4]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[4]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[4]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[4]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[4]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[5]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[5]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[5]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[5]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[5]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[5]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[5]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[5]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[5]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[5]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[5]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[5]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[6]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[6]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[6]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[6]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[6]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[6]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[6]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[6]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[6]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[6]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[6]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[6]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[7]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[7]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[7]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[7]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[7]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[7]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[7]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[7]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[7]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[7]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[7]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[7]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[8]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[8]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[8]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[8]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[8]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[8]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[8]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[8]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[8]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[8]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[8]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[8]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[9]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[9]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[9]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[9]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[9]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[9]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[9]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[9]     ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[9]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[9]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[9]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[9]     ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[10]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[10]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[10]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[10]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[10]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[10]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[10]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[10]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[10]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[10]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[10]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[10]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[11]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[11]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[11]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[11]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[11]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[11]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[11]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[11]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[11]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[11]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[11]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[11]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[12]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[12]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[12]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[12]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[12]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[12]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[12]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[12]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[12]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[12]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[12]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[12]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[13]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[13]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[13]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[13]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[13]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[13]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[13]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[13]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[13]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[13]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[13]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[13]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[14]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[14]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[14]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[14]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[14]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[14]   ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[14]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[14]    ; Lost fanout                                 ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[14]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[14]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[14]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[14]    ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[0..15] ; Stuck at GND due to stuck port clock_enable ;
+; CPU:mycpu|pc[4..15]                                      ; Lost fanout                                 ;
+; Total Number of Removed Registers = 283                  ;                                             ;
++----------------------------------------------------------+---------------------------------------------+
 
 
-+-----------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                          ;
-+--------------------------------------------------------+--------------------+
-; Register name                                          ; Reason for Removal ;
-+--------------------------------------------------------+--------------------+
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[0]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[0]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[0]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[0]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[0]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[0]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[0]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[0]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[1]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[1]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[1]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[1]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[1]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[1]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[1]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[1]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[2]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[2]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[2]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[2]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[2]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[2]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[2]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[2]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[3]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[3]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[3]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[3]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[3]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[3]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[3]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[3]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[4]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[4]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[4]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[4]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[4]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[4]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[4]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[4]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[5]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[5]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[5]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[5]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[5]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[5]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[5]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[5]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[6]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[6]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[6]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[6]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[6]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[6]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[6]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[6]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[7]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[7]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[7]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[7]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[7]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[7]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[7]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[7]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[8]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[8]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[8]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[8]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[8]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[8]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[8]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[8]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[9]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[9]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[9]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[9]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[9]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[9]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[9]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[9]   ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[10] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[10] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[10] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[10] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[10] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[10] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[10]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[10]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[11] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[11] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[11] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[11] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[11] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[11] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[11]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[11]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[12] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[12] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[12] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[12] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[12] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[12] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[12]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[12]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[13] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[13] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[13] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[13] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[13] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[13] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[13]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[13]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[14] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[14] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[14] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[14] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[14] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[14] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[14]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[14]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[15].itk|Q[15] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[14].itk|Q[15] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[13].itk|Q[15] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[12].itk|Q[15] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[11].itk|Q[15] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[10].itk|Q[15] ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[9].itk|Q[15]  ; Lost fanout        ;
-; CPU:mycpu|regfile:myreg|EnabledReg:bloop[8].itk|Q[15]  ; Lost fanout        ;
-; counter32:myclock|q[26..31]                            ; Lost fanout        ;
-; CPU:mycpu|pc[4..15]                                    ; Lost fanout        ;
-; Total Number of Removed Registers = 146                ;                    ;
-+--------------------------------------------------------+--------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                   ;
++----------------------------------+--------------------------------+-------------------------------------------------------------------------------------------+
+; Register name                    ; Reason for Removal             ; Registers Removed due to This Register                                                    ;
++----------------------------------+--------------------------------+-------------------------------------------------------------------------------------------+
+; CPU:mycpu|pc[15]                 ; Lost Fanouts                   ; CPU:mycpu|pc[14], CPU:mycpu|pc[13], CPU:mycpu|pc[12], CPU:mycpu|pc[11], CPU:mycpu|pc[10], ;
+;                                  ;                                ; CPU:mycpu|pc[9], CPU:mycpu|pc[8], CPU:mycpu|pc[7], CPU:mycpu|pc[6], CPU:mycpu|pc[5],      ;
+;                                  ;                                ; CPU:mycpu|pc[4]                                                                           ;
+; CPU:mycpu|multiDiv:mymult|hi[0]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[0],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[0],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[0],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[0],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[0]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[1]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[1],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[1],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[1],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[1],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[1]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[2]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[2],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[2],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[2],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[2],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[2]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[3]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[3],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[3],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[3],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[3],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[3]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[4]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[4],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[4],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[4],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[4],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[4]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[5]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[5],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[5],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[5],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[5],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[5]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[6]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[6],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[6],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[6],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[6],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[6]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[7]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[7],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[7],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[7],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[7],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[7]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[8]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[8],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[8],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[8],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[8],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[8]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[9]  ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[9],                                     ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[9],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[9],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[9],                                     ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[9]                                      ;
+; CPU:mycpu|multiDiv:mymult|hi[10] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[10],                                    ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[10],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[10],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[10],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[10]                                     ;
+; CPU:mycpu|multiDiv:mymult|hi[11] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[11],                                    ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[11],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[11],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[11],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[11]                                     ;
+; CPU:mycpu|multiDiv:mymult|hi[12] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[12],                                    ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[12],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[12],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[12],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[12]                                     ;
+; CPU:mycpu|multiDiv:mymult|hi[13] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[13],                                    ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[13],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[13],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[13],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[13]                                     ;
+; CPU:mycpu|multiDiv:mymult|hi[14] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[14],                                    ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[14],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[14],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[14],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[14]                                     ;
+; CPU:mycpu|multiDiv:mymult|hi[15] ; Stuck at GND                   ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[7].itk|Q[15],                                    ;
+;                                  ; due to stuck port clock_enable ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[6].itk|Q[15],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[5].itk|Q[15],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[4].itk|Q[15],                                    ;
+;                                  ;                                ; CPU:mycpu|regfile:myreg|EnabledReg:bloop[3].itk|Q[15]                                     ;
++----------------------------------+--------------------------------+-------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -505,38 +644,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 206   ;
-; Number of registers using Synchronous Clear  ; 1     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 69    ;
+; Number of registers using Synchronous Clear  ; 66    ;
+; Number of registers using Synchronous Load   ; 2     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 160   ;
+; Number of registers using Clock Enable       ; 48    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |src|CPU:mycpu|multiDiv:mymult|lo[6]                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |src|CPU:mycpu|pc[1]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |src|CPU:mycpu|pc[10]                                 ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |src|CPU:mycpu|pc[6]                                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |src|CPU:mycpu|shifter:myshift|ShiftLeft0             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |src|CPU:mycpu|shifter:myshift|ShiftRight0            ;
-; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|shifter:myshift|ShiftRight0            ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:mux2|y[0]                      ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|regfile:myreg|Mux14                    ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|regfile:myreg|Mux23                    ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:mux2|y[13]                     ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|ALU:myalu|mux2to1:ResultLogicmux2|y[4] ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 30 LEs               ; 3 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:memmux1|y[5]                   ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 44 LEs               ; 4 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:memmux1|y[1]                   ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 56 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:memmux1|y[8]                   ;
-; 23:1               ; 4 bits    ; 60 LEs        ; 56 LEs               ; 4 LEs                  ; No         ; |src|CPU:mycpu|mux2to1:memmux1|y[15]                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |src|CPU:mycpu|pc[7]               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |src|CPU:mycpu|pc[9]               ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |src|CPU:mycpu|regfile:myreg|Mux26 ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |src|CPU:mycpu|regfile:myreg|Mux15 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
 
 
 +------------------------------------------------------------------+
@@ -1142,52 +1269,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0 ;
-+------------------------+----------------+--------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                             ;
-+------------------------+----------------+--------------------------------------------------+
-; LPM_WIDTHN             ; 16             ; Untyped                                          ;
-; LPM_WIDTHD             ; 16             ; Untyped                                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
-; CBXI_PARAMETER         ; lpm_divide_a5m ; Untyped                                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
-+------------------------+----------------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: CPU:mycpu|multiDiv:mymult|lpm_divide:Div0 ;
-+------------------------+----------------+--------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                             ;
-+------------------------+----------------+--------------------------------------------------+
-; LPM_WIDTHN             ; 16             ; Untyped                                          ;
-; LPM_WIDTHD             ; 16             ; Untyped                                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
-; CBXI_PARAMETER         ; lpm_divide_7dm ; Untyped                                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
-+------------------------+----------------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +---------------------------------------------------------------------+
 ; Port Connectivity Checks: "CPU:mycpu|MemoryAccess:mem1|mux2to1:Rd2" ;
 +-----------+-------+----------+--------------------------------------+
@@ -1362,14 +1443,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "counter32:myclock"                                                                       ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; q[31..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; q[24..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "counter32:myclock"                                                                      ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; q[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -1377,36 +1457,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 206                         ;
-;     ENA               ; 160                         ;
-;     SCLR              ; 1                           ;
-;     plain             ; 45                          ;
-; arriav_lcell_comb     ; 908                         ;
-;     arith             ; 353                         ;
-;         0 data inputs ; 56                          ;
-;         1 data inputs ; 28                          ;
-;         2 data inputs ; 2                           ;
-;         5 data inputs ; 267                         ;
-;     extend            ; 15                          ;
-;         7 data inputs ; 15                          ;
-;     normal            ; 513                         ;
+; arriav_ff             ; 69                          ;
+;     ENA SCLR          ; 48                          ;
+;     SCLR              ; 16                          ;
+;     SCLR SLD          ; 2                           ;
+;     plain             ; 3                           ;
+; arriav_lcell_comb     ; 97                          ;
+;     arith             ; 4                           ;
+;         1 data inputs ; 4                           ;
+;     normal            ; 77                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 49                          ;
-;         3 data inputs ; 90                          ;
-;         4 data inputs ; 251                         ;
-;         5 data inputs ; 43                          ;
-;         6 data inputs ; 78                          ;
-;     shared            ; 27                          ;
-;         0 data inputs ; 5                           ;
-;         2 data inputs ; 4                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 32                          ;
+;         5 data inputs ; 4                           ;
+;         6 data inputs ; 30                          ;
+;     shared            ; 16                          ;
+;         2 data inputs ; 2                           ;
 ;         3 data inputs ; 14                          ;
-;         4 data inputs ; 4                           ;
-; arriav_mac            ; 1                           ;
 ; boundary_port         ; 61                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 35.10                       ;
-; Average LUT depth     ; 24.55                       ;
+; Max LUT depth         ; 4.50                        ;
+; Average LUT depth     ; 2.68                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1415,7 +1488,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -1425,121 +1498,102 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Nov 29 17:31:18 2020
+    Info: Processing started: Mon Nov 30 13:47:04 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off src -c src
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 24 design units, including 24 entities, in source file src.sv
     Info (12023): Found entity 1: src File: U:/ELEC4720/simple-microprocessor/src.sv Line: 2
-    Info (12023): Found entity 2: counter32 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 27
-    Info (12023): Found entity 3: CPU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 37
-    Info (12023): Found entity 4: ROM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 117
-    Info (12023): Found entity 5: regfile File: U:/ELEC4720/simple-microprocessor/src.sv Line: 130
-    Info (12023): Found entity 6: ALU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 152
-    Info (12023): Found entity 7: ALU_Adder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 188
-    Info (12023): Found entity 8: SLTout File: U:/ELEC4720/simple-microprocessor/src.sv Line: 200
-    Info (12023): Found entity 9: mux4_1Test File: U:/ELEC4720/simple-microprocessor/src.sv Line: 218
-    Info (12023): Found entity 10: shifter File: U:/ELEC4720/simple-microprocessor/src.sv Line: 237
-    Info (12023): Found entity 11: multiDiv File: U:/ELEC4720/simple-microprocessor/src.sv Line: 252
-    Info (12023): Found entity 12: BranchControl File: U:/ELEC4720/simple-microprocessor/src.sv Line: 289
-    Info (12023): Found entity 13: OpPrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 318
-    Info (12023): Found entity 14: RTypePrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 340
-    Info (12023): Found entity 15: parameterized_decoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 358
-    Info (12023): Found entity 16: EnabledReg File: U:/ELEC4720/simple-microprocessor/src.sv Line: 370
-    Info (12023): Found entity 17: MemoryIn File: U:/ELEC4720/simple-microprocessor/src.sv Line: 382
-    Info (12023): Found entity 18: RAM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 393
-    Info (12023): Found entity 19: MemoryAccess File: U:/ELEC4720/simple-microprocessor/src.sv Line: 408
-    Info (12023): Found entity 20: ssd File: U:/ELEC4720/simple-microprocessor/src.sv Line: 444
-    Info (12023): Found entity 21: immExtend File: U:/ELEC4720/simple-microprocessor/src.sv Line: 500
-    Info (12023): Found entity 22: tristate_active_hi File: U:/ELEC4720/simple-microprocessor/src.sv Line: 511
-    Info (12023): Found entity 23: mux4to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 521
-    Info (12023): Found entity 24: mux2to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 535
+    Info (12023): Found entity 2: counter32 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 31
+    Info (12023): Found entity 3: CPU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 41
+    Info (12023): Found entity 4: ROM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 121
+    Info (12023): Found entity 5: regfile File: U:/ELEC4720/simple-microprocessor/src.sv Line: 134
+    Info (12023): Found entity 6: ALU File: U:/ELEC4720/simple-microprocessor/src.sv Line: 156
+    Info (12023): Found entity 7: ALU_Adder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 192
+    Info (12023): Found entity 8: SLTout File: U:/ELEC4720/simple-microprocessor/src.sv Line: 204
+    Info (12023): Found entity 9: mux4_1Test File: U:/ELEC4720/simple-microprocessor/src.sv Line: 222
+    Info (12023): Found entity 10: shifter File: U:/ELEC4720/simple-microprocessor/src.sv Line: 241
+    Info (12023): Found entity 11: multiDiv File: U:/ELEC4720/simple-microprocessor/src.sv Line: 256
+    Info (12023): Found entity 12: BranchControl File: U:/ELEC4720/simple-microprocessor/src.sv Line: 293
+    Info (12023): Found entity 13: OpPrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 322
+    Info (12023): Found entity 14: RTypePrioDecoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 344
+    Info (12023): Found entity 15: parameterized_decoder File: U:/ELEC4720/simple-microprocessor/src.sv Line: 362
+    Info (12023): Found entity 16: EnabledReg File: U:/ELEC4720/simple-microprocessor/src.sv Line: 374
+    Info (12023): Found entity 17: MemoryIn File: U:/ELEC4720/simple-microprocessor/src.sv Line: 387
+    Info (12023): Found entity 18: RAM File: U:/ELEC4720/simple-microprocessor/src.sv Line: 398
+    Info (12023): Found entity 19: MemoryAccess File: U:/ELEC4720/simple-microprocessor/src.sv Line: 413
+    Info (12023): Found entity 20: ssd File: U:/ELEC4720/simple-microprocessor/src.sv Line: 449
+    Info (12023): Found entity 21: immExtend File: U:/ELEC4720/simple-microprocessor/src.sv Line: 505
+    Info (12023): Found entity 22: tristate_active_hi File: U:/ELEC4720/simple-microprocessor/src.sv Line: 516
+    Info (12023): Found entity 23: mux4to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 526
+    Info (12023): Found entity 24: mux2to1 File: U:/ELEC4720/simple-microprocessor/src.sv Line: 540
 Warning (12019): Can't analyze file -- file main.sv is missing
-Warning (10236): Verilog HDL Implicit Net warning at src.sv(168): created implicit net for "CoutFlag" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 168
-Warning (10236): Verilog HDL Implicit Net warning at src.sv(177): created implicit net for "Z" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 177
-Warning (10222): Verilog HDL Parameter Declaration warning at src.sv(363): Parameter Declaration in module "parameterized_decoder" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: U:/ELEC4720/simple-microprocessor/src.sv Line: 363
+Warning (10236): Verilog HDL Implicit Net warning at src.sv(172): created implicit net for "CoutFlag" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 172
+Warning (10236): Verilog HDL Implicit Net warning at src.sv(181): created implicit net for "Z" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 181
+Warning (10222): Verilog HDL Parameter Declaration warning at src.sv(367): Parameter Declaration in module "parameterized_decoder" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: U:/ELEC4720/simple-microprocessor/src.sv Line: 367
 Info (12127): Elaborating entity "src" for the top level hierarchy
 Warning (10034): Output port "LEDG[7..1]" at src.sv(7) has no driver File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
 Info (12128): Elaborating entity "counter32" for hierarchy "counter32:myclock" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 14
-Info (12128): Elaborating entity "CPU" for hierarchy "CPU:mycpu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 18
-Warning (10036): Verilog HDL or VHDL warning at src.sv(44): object "pc_carry" assigned a value but never read File: U:/ELEC4720/simple-microprocessor/src.sv Line: 44
-Warning (10230): Verilog HDL assignment warning at src.sv(63): truncated value with size 32 to match size of target (17) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 63
-Info (12128): Elaborating entity "ROM" for hierarchy "CPU:mycpu|ROM:myrom" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 62
-Warning (10850): Verilog HDL warning at src.sv(125): number of words (13) in memory file does not match the number of elements in the address range [0:15] File: U:/ELEC4720/simple-microprocessor/src.sv Line: 125
-Warning (10030): Net "mem.data_a" at src.sv(121) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 121
-Warning (10030): Net "mem.waddr_a" at src.sv(121) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 121
-Warning (10030): Net "mem.we_a" at src.sv(121) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 121
-Info (12128): Elaborating entity "OpPrioDecoder" for hierarchy "CPU:mycpu|OpPrioDecoder:myopdecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 67
-Info (12128): Elaborating entity "RTypePrioDecoder" for hierarchy "CPU:mycpu|RTypePrioDecoder:myrtypedecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 68
-Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|mux2to1:branchmux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 72
-Info (12128): Elaborating entity "regfile" for hierarchy "CPU:mycpu|regfile:myreg" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 78
-Info (12128): Elaborating entity "parameterized_decoder" for hierarchy "CPU:mycpu|regfile:myreg|parameterized_decoder:decw" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 139
-Info (12128): Elaborating entity "EnabledReg" for hierarchy "CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 146
-Info (12128): Elaborating entity "immExtend" for hierarchy "CPU:mycpu|immExtend:myimm" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 84
-Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|mux2to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 85
-Info (12128): Elaborating entity "ALU" for hierarchy "CPU:mycpu|ALU:myalu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 89
-Warning (10036): Verilog HDL or VHDL warning at src.sv(168): object "CoutFlag" assigned a value but never read File: U:/ELEC4720/simple-microprocessor/src.sv Line: 168
-Info (12128): Elaborating entity "ALU_Adder" for hierarchy "CPU:mycpu|ALU:myalu|ALU_Adder:Test123" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 173
-Info (12128): Elaborating entity "SLTout" for hierarchy "CPU:mycpu|ALU:myalu|SLTout:SLTTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 179
-Info (12128): Elaborating entity "mux4_1Test" for hierarchy "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 181
-Info (12128): Elaborating entity "shifter" for hierarchy "CPU:mycpu|shifter:myshift" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 90
-Info (12128): Elaborating entity "multiDiv" for hierarchy "CPU:mycpu|multiDiv:mymult" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 91
-Info (12128): Elaborating entity "tristate_active_hi" for hierarchy "CPU:mycpu|tristate_active_hi:ALUTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 93
-Info (12128): Elaborating entity "BranchControl" for hierarchy "CPU:mycpu|BranchControl:mybranchctrl" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 103
-Warning (10230): Verilog HDL assignment warning at src.sv(314): truncated value with size 16 to match size of target (1) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 314
-Info (12128): Elaborating entity "MemoryAccess" for hierarchy "CPU:mycpu|MemoryAccess:mem1" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 109
-Info (12128): Elaborating entity "MemoryIn" for hierarchy "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 432
-Info (12128): Elaborating entity "RAM" for hierarchy "CPU:mycpu|RAM:mem2" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 110
-Info (12128): Elaborating entity "ssd" for hierarchy "ssd:ins0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 20
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:mycpu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 21
+Warning (10036): Verilog HDL or VHDL warning at src.sv(48): object "pc_carry" assigned a value but never read File: U:/ELEC4720/simple-microprocessor/src.sv Line: 48
+Warning (10230): Verilog HDL assignment warning at src.sv(67): truncated value with size 32 to match size of target (17) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 67
+Info (12128): Elaborating entity "ROM" for hierarchy "CPU:mycpu|ROM:myrom" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 66
+Warning (10850): Verilog HDL warning at src.sv(129): number of words (4) in memory file does not match the number of elements in the address range [0:15] File: U:/ELEC4720/simple-microprocessor/src.sv Line: 129
+Warning (10030): Net "mem.data_a" at src.sv(125) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 125
+Warning (10030): Net "mem.waddr_a" at src.sv(125) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 125
+Warning (10030): Net "mem.we_a" at src.sv(125) has no driver or initial value, using a default initial value '0' File: U:/ELEC4720/simple-microprocessor/src.sv Line: 125
+Info (12128): Elaborating entity "OpPrioDecoder" for hierarchy "CPU:mycpu|OpPrioDecoder:myopdecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 71
+Info (12128): Elaborating entity "RTypePrioDecoder" for hierarchy "CPU:mycpu|RTypePrioDecoder:myrtypedecoder" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 72
+Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|mux2to1:branchmux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 76
+Info (12128): Elaborating entity "regfile" for hierarchy "CPU:mycpu|regfile:myreg" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 82
+Info (12128): Elaborating entity "parameterized_decoder" for hierarchy "CPU:mycpu|regfile:myreg|parameterized_decoder:decw" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 143
+Info (12128): Elaborating entity "EnabledReg" for hierarchy "CPU:mycpu|regfile:myreg|EnabledReg:bloop[0].itk" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 150
+Info (12128): Elaborating entity "immExtend" for hierarchy "CPU:mycpu|immExtend:myimm" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 88
+Info (12128): Elaborating entity "mux2to1" for hierarchy "CPU:mycpu|mux2to1:mux0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 89
+Info (12128): Elaborating entity "ALU" for hierarchy "CPU:mycpu|ALU:myalu" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 93
+Warning (10036): Verilog HDL or VHDL warning at src.sv(172): object "CoutFlag" assigned a value but never read File: U:/ELEC4720/simple-microprocessor/src.sv Line: 172
+Info (12128): Elaborating entity "ALU_Adder" for hierarchy "CPU:mycpu|ALU:myalu|ALU_Adder:Test123" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 177
+Info (12128): Elaborating entity "SLTout" for hierarchy "CPU:mycpu|ALU:myalu|SLTout:SLTTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 183
+Info (12128): Elaborating entity "mux4_1Test" for hierarchy "CPU:mycpu|ALU:myalu|mux4_1Test:LogicOutcome" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 185
+Info (12128): Elaborating entity "shifter" for hierarchy "CPU:mycpu|shifter:myshift" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 94
+Info (12128): Elaborating entity "multiDiv" for hierarchy "CPU:mycpu|multiDiv:mymult" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 95
+Info (12128): Elaborating entity "tristate_active_hi" for hierarchy "CPU:mycpu|tristate_active_hi:ALUTest" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 97
+Info (12128): Elaborating entity "BranchControl" for hierarchy "CPU:mycpu|BranchControl:mybranchctrl" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 107
+Warning (10230): Verilog HDL assignment warning at src.sv(318): truncated value with size 16 to match size of target (1) File: U:/ELEC4720/simple-microprocessor/src.sv Line: 318
+Info (12128): Elaborating entity "MemoryAccess" for hierarchy "CPU:mycpu|MemoryAccess:mem1" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 113
+Info (12128): Elaborating entity "MemoryIn" for hierarchy "CPU:mycpu|MemoryAccess:mem1|MemoryIn:mymem" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 437
+Info (12128): Elaborating entity "RAM" for hierarchy "CPU:mycpu|RAM:mem2" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 114
+Info (12128): Elaborating entity "ssd" for hierarchy "ssd:ins0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 24
 Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer comb~0
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "CPU:mycpu|RAM:mem2|array" is uninferred due to asynchronous read logic File: U:/ELEC4720/simple-microprocessor/src.sv Line: 400
-    Info (276004): RAM logic "CPU:mycpu|ROM:myrom|mem" is uninferred due to inappropriate RAM size File: U:/ELEC4720/simple-microprocessor/src.sv Line: 121
+    Info (276007): RAM logic "CPU:mycpu|RAM:mem2|array" is uninferred due to asynchronous read logic File: U:/ELEC4720/simple-microprocessor/src.sv Line: 405
+    Info (276004): RAM logic "CPU:mycpu|ROM:myrom|mem" is uninferred due to inappropriate RAM size File: U:/ELEC4720/simple-microprocessor/src.sv Line: 125
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "U:/ELEC4720/simple-microprocessor/db/src.ram0_ROM_3508f32d.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[15]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[14]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[13]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[12]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[11]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[10]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[9]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[8]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[7]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[6]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[5]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[4]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[3]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[2]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[1]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-    Warning (13048): Converted tri-state node "CPU:mycpu|opout[0]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 539
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "CPU:mycpu|multiDiv:mymult|Mod0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 272
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "CPU:mycpu|multiDiv:mymult|Div0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 271
-Info (12130): Elaborated megafunction instantiation "CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 272
-Info (12133): Instantiated megafunction "CPU:mycpu|multiDiv:mymult|lpm_divide:Mod0" with the following parameter: File: U:/ELEC4720/simple-microprocessor/src.sv Line: 272
-    Info (12134): Parameter "LPM_WIDTHN" = "16"
-    Info (12134): Parameter "LPM_WIDTHD" = "16"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_a5m.tdf
-    Info (12023): Found entity 1: lpm_divide_a5m File: U:/ELEC4720/simple-microprocessor/db/lpm_divide_a5m.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dnh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_dnh File: U:/ELEC4720/simple-microprocessor/db/sign_div_unsign_dnh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_03f.tdf
-    Info (12023): Found entity 1: alt_u_div_03f File: U:/ELEC4720/simple-microprocessor/db/alt_u_div_03f.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "CPU:mycpu|multiDiv:mymult|lpm_divide:Div0" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 271
-Info (12133): Instantiated megafunction "CPU:mycpu|multiDiv:mymult|lpm_divide:Div0" with the following parameter: File: U:/ELEC4720/simple-microprocessor/src.sv Line: 271
-    Info (12134): Parameter "LPM_WIDTHN" = "16"
-    Info (12134): Parameter "LPM_WIDTHD" = "16"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_7dm.tdf
-    Info (12023): Found entity 1: lpm_divide_7dm File: U:/ELEC4720/simple-microprocessor/db/lpm_divide_7dm.tdf Line: 24
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[15]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[14]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[13]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[12]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[11]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[10]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[9]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[8]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[7]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[6]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[5]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[4]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[3]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[2]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[1]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
+    Warning (13048): Converted tri-state node "CPU:mycpu|opout[0]" into a selector File: U:/ELEC4720/simple-microprocessor/src.sv Line: 544
 Warning (12241): 12 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 6
     Warning (13410): Pin "LEDG[1]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
     Warning (13410): Pin "LEDG[2]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
     Warning (13410): Pin "LEDG[3]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
@@ -1548,7 +1602,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: U:/ELEC4720/simple-microprocessor/src.sv Line: 7
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 146 registers lost all their fanouts during netlist optimizations.
+Info (17049): 171 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file U:/ELEC4720/simple-microprocessor/output_files/src.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -1565,16 +1619,15 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 4
     Warning (15610): No output dependent on input pin "KEY[2]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 4
     Warning (15610): No output dependent on input pin "KEY[3]" File: U:/ELEC4720/simple-microprocessor/src.sv Line: 4
-Info (21057): Implemented 1113 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 219 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-    Info (21061): Implemented 1051 logic cells
-    Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 57 warnings
-    Info: Peak virtual memory: 4864 megabytes
-    Info: Processing ended: Sun Nov 29 17:31:35 2020
+    Info (21061): Implemented 158 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 61 warnings
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Mon Nov 30 13:47:21 2020
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:19
 
 
 +------------------------------------------+

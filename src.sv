@@ -13,10 +13,14 @@ module src(
 	
 	counter32 myclock(CLOCK_50, q); 
 	
-	assign LEDG[0] = SW[0] ? KEY[0] : q[25]; 
+//	assign LEDG[0] = SW[0] ? KEY[0] : q[25]; 
+	assign LEDG[0] = SW[0] ? KEY[0] : q[0]; 
 	
-	CPU mycpu(SW[0] ? KEY[0] : q[25], oup, LEDR[5:0], LEDR[9:6]);
+//	CPU mycpu(SW[0] ? KEY[0] : q[25], oup, LEDR[5:0], LEDR[9:6]);
+	// Uncomment next line for 50Mhz clock speed
+	CPU mycpu(SW[0] ? KEY[0] : q[0], oup, LEDR[5:0], LEDR[9:6]);
 	
+	// Display WD on the SSD 
 	ssd ins0(oup[3:0], HEX0);
 	ssd ins1(oup[7:4], HEX1);
 	ssd ins2(oup[11:8], HEX2);
@@ -59,33 +63,33 @@ module CPU (
 			outport <= WD; 
 		end
 	
-	ROM #(4, 18) myrom(pc, instruction); 
+	ROM #(4, 18) myrom(pc, instruction); // Reading maximum 16 instructions, and each instruction is 18 bits
 	assign {pc_carry, pc_plus_one} = pc + 1; 
 	assign funct  = instruction[12];
 	assign opcode = instruction[17:13];
 	
-	OpPrioDecoder myopdecoder(opcode, opprio); 
-	RTypePrioDecoder myrtypedecoder(opcode[3:1], rprio);  
+	OpPrioDecoder myopdecoder(opcode, opprio); // Opcode priority 
+	RTypePrioDecoder myrtypedecoder(opcode[3:1], rprio);  // Rtype priority
 	
-	assign isBranch = opprio[1] | opprio[2];
+	assign isBranch = opprio[1] | opprio[2]; // Checking if its branch instruction 
 	assign jump = (opprio[5] & rprio[0]) | opprio[0];
-	mux2to1 #(4) branchmux0(isBranch, instruction[11:8], instruction[3:0], RA1);
+	mux2to1 #(4) branchmux0(isBranch, instruction[11:8], instruction[3:0], RA1); // If its branch instruction the least significant 4 bits will be the src register 2 address
 	assign Imm    = instruction[11:8];
 	assign RA2    = instruction[7:4]; 
-	mux2to1 #(4) jumpmux0(jump & funct, instruction[3:0], 4'b1111, WA); 
-	assign JTA    = {4'b0, instruction[11:0]}; 
+	mux2to1 #(4) jumpmux0(jump & funct, instruction[3:0], 4'b1111, WA); // If its jump instruction, the least significant 4 bits will write register address
+	assign JTA    = {4'b0, instruction[11:0]}; // The JTA is taking the first 12 bits 
  
 	regfile #(16, 4) myreg(clk, RA1, RA2, WA, WD, RD1, RD2); 
 	
 	assign ALUSrc[0] = instruction[12] & instruction[13]; 
 	assign ALUSrc[1] = instruction[14]; 
 	assign ALUSrc[2] = instruction[17]; 
-	
+	// IMM Extension 
 	immExtend myimm(Imm, ZeroImm, CompImm, SignImm);
 	mux2to1 #(16) mux0 (ALUSrc[0], ZeroImm, CompImm, immOut0); 
 	mux2to1 #(16) mux1 (ALUSrc[1], SignImm, immOut0, immOut1); 
 	mux2to1 #(16) mux2 (ALUSrc[2], immOut1, RD1, immOut2); 
-
+	
 	ALU #(16) myalu({opcode[2:0], funct}, RD2, immOut2, ALUout);
 	shifter #(16) myshift({opcode[0], funct}, RD2, RD1, shiftout);
 	multiDiv #(16) mymult(RD2, RD1, clk, {opcode[1:0], funct}, multout);
@@ -122,7 +126,7 @@ module ROM #(parameter m=7,w=4) (
   assign Dout = mem[Ad];
   
   initial begin
-    $readmemb("instruction_mult.txt",mem); 
+    $readmemb("test_clock.txt",mem); 
   end
 
 endmodule
@@ -336,7 +340,7 @@ module OpPrioDecoder (
 	assign b[4:0] = f[4:0] & {5{e[0]}};
 
 endmodule
-// RType Instructions Priority
+// RType Instructions Priority Decoder
 module RTypePrioDecoder (
 	input  logic [2:0] instruction, 
 	output logic [3:0] outcome
@@ -378,7 +382,8 @@ module EnabledReg
 		if(en) Q <= D;
 
 endmodule
-// Mem access memin control signals
+// Mem access memin control signals 
+// Store memory instruction signals 
 module MemoryIn(
 	input logic  [15:0] WB0, WB1, WD, Ad, Op12, 
 	output logic [15:0] MemIn
@@ -420,8 +425,8 @@ module MemoryAccess(
 	assign s1 = instruction[13]; 
 	assign MemEn = instruction[14] | instruction[15];
 	
-	assign WB0 = {Mout[15:8], WD[7:0]};
-	assign WB1 = {WD[15:8], Mout[7:0]}; 
+	assign WB1 = {Mout[15:8], WD[7:0]};
+	assign WB0 = {WD[15:8], Mout[7:0]}; 
 	
 	assign SignB0 = {{8{Mout[7]}}, Mout[7:0]}; 
 	assign SignB1 = {{8{Mout[15]}}, Mout[15:8]}; 
