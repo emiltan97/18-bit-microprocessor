@@ -28,4 +28,5 @@ The number of registers is **16**, and the dataword width is **16 bits** as well
 - bit[3:0] : DEST_REG
 For example, ADDI 2 1 3 would be ADDing IMM value 2 to the content stored in register 1, and assign the content into destination register 3. 
 ## Reference 
- 
+- [Report](https://github.com/emiltan97/18-bit-microprocessor/blob/master/18-Bit%20Microprocessor.pdf)
+- [Instruction Set](https://github.com/emiltan97/18-bit-microprocessor/blob/master/instruction%20set.xlsx)
